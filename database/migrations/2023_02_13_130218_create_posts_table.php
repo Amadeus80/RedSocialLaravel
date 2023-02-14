@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string("titulo");
             $table->text("img");
             $table->bigInteger("likes");
-            $table->foreignId("user_id")->constrained("users");
+            $table->foreignId("user_id")->constrained("users")->onDelete("cascade")->onDelete("cascade");
             $table->timestamps();
         });
     }
