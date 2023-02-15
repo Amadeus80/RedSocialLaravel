@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Profile;
 use App\Models\Post;
+use App\Models\Comment;
 
 class User extends Authenticatable
 {
@@ -53,7 +54,12 @@ class User extends Authenticatable
 
     //Relación con tabla Post
     public function post(){
-        return $this->hasOne(Post::class);
+        return $this->hasMany(Post::class);
+    }
+
+    //Relación con tabla Comment
+    public function comment(){
+        return $this->hasMany(Comment::class);
     }
 
 }
