@@ -15,7 +15,7 @@ use App\Models\Post;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name("inicio");
 
 Route::get("ejemplo", function(){
     $post = Post::find(rand(1,10));
