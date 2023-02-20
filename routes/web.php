@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get("ejemplo", function(){
-    $post = Post::find(2);
+    $post = Post::find(rand(1,10));
 
     return view("ejemplo", compact("post"));
 });
