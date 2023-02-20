@@ -14,7 +14,7 @@ use App\Models\Post;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('inicio');
 })->name("inicio");
 
 Route::get("ejemplo", function(){
