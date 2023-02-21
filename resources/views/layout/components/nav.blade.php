@@ -14,14 +14,10 @@
         overflow: hidden;
     }
 </style>
-@php
-    use App\models\Profile;
-@endphp
-
 <nav class="navbar sticky-top bg-body-tertiary bg-opacity-75">
     <div class="container-fluid">
         @auth
-        <a class="navbar-brand fs-2" data-bs-toggle="offcanvas" href="#offcanvasExample"><img src="{{asset(Profile::where("user_id", Auth::user()->id)->first()->img)}}" alt="foto de perfil" class="rounded-circle" width="50" height="50"></a>
+        <a class="navbar-brand fs-2" data-bs-toggle="offcanvas" href="#offcanvasExample"><img src="{{asset(Auth::user()->profile->img)}}" alt="foto de perfil" class="rounded-circle" width="50" height="50"></a>
         @endauth
 
         @auth
@@ -45,7 +41,7 @@
 @auth
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">
-      <h3 class="offcanvas-title d-flex justify-content-around w-75" id="offcanvasExampleLabel"><img src="{{asset(Profile::where("user_id", Auth::user()->id)->first()->img)}}" alt="foto de perfil" class="rounded-circle" width="50" height="50"> <span class="nombreUser">{{ucfirst(Auth::user()->name)}}</span></h3>
+      <h3 class="offcanvas-title d-flex justify-content-around w-75" id="offcanvasExampleLabel"><img src="{{asset(Auth::user()->profile->img)}}" alt="foto de perfil" class="rounded-circle" width="50" height="50"> <span class="nombreUser">{{ucfirst(Auth::user()->name)}}</span></h3>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
