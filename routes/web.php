@@ -13,12 +13,18 @@ use App\Models\Post;
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('inicio');
-})->name("inicio");
+})->name("inicio"); */
 
-Route::get("ejemplo", function(){
-    $post = Post::find(rand(1,10));
+Route::view("/", "login")->name("login")->middleware("guest");
+Route::view("register", "register")->name("register")->middleware("guest");
 
-    return view("ejemplo", compact("post"));
-});
+Route::view("inicio", "inicio")->name("inicio")->middleware("guest");
+
+
+
+Route::post("login", [AuthController::class, "login"])->name("login.log")->middleware("auth");
+Route::post("register", [AuthController::class, "register"])->name("register.log")->middleware("auth");
+
+Route::post("logout", [AuthController::class, "logout"])->name("logout")->middleware("auth");

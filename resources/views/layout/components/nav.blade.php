@@ -9,7 +9,18 @@
         @auth
         <a class="navbar-brand fs-2" data-bs-toggle="offcanvas" href="#offcanvasExample"><img src="https://icones.pro/wp-content/uploads/2021/03/avatar-de-personne-icone-homme.png" alt="foto de perfil" class="rounded-circle" width="50" height="50"></a>
         @endauth
-      <a href="{{route('inicio')}}" class="text-decoration-none text-dark m-auto"><h2>Logo</h2></a>
+
+    @auth
+        <a href="{{route('inicio')}}" class="text-decoration-none text-dark m-auto"><h2>Logo</h2></a>
+    @else
+        <a href="{{route('login')}}" class="text-decoration-none text-dark m-auto"><h2>Logo</h2></a>
+    @endauth
+      
+      
+      @guest
+          <a href="{{route("login")}}" class="btn btn-outline-dark">Login</a>
+          <a href="{{route("register")}}" class="btn btn-outline-dark ms-1">Register</a>
+      @endguest
       @auth    
       <form class="d-flex" role="search">
         <input class="form-control me-2 rounded-end-0" type="search" placeholder="Buscar..." aria-label="Search">

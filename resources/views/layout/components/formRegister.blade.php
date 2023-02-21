@@ -2,10 +2,18 @@
     <div class="row d-flex justify-content-center">
         <div class="col-md-6">
         <!-- Formulario -->
-            <form action="{{route("login.log")}}" class="needs-validation" novalidate method="POST">
+            <form action="{{route("register.log")}}" class="needs-validation" novalidate method="POST">
                 @csrf
-                <legend class="text-center fs-1"><i class="bi bi-people"></i> Login</legend>
+                <legend class="text-center fs-1"><i class="bi bi-people"></i> Register</legend>
             
+                {{-- Campo nombre --}}
+                <div class="mb-3 form-floating position-relative">
+                    <input type="text" name="name" id="input-email" class="form-control" placeholder=" " required />
+                    <label for="input-email" class="form-label">Nombre</label>
+                    <div class="valid-feedback"><i class="bi bi-check-lg"></i> Válido</div>
+                    <div class="invalid-feedback"><i class="bi bi-exclamation-octagon-fill"></i> Nombre requerido</div>
+                </div>
+
                 {{-- Campo email --}}
                 <div class="mb-3 form-floating position-relative">
                     <input type="email" name="email" id="input-email" class="form-control" placeholder=" " required />
@@ -13,6 +21,12 @@
                     <div class="valid-feedback"><i class="bi bi-check-lg"></i> Válido</div>
                     <div class="invalid-feedback"><i class="bi bi-exclamation-octagon-fill"></i> Email no válido</div>
                 </div>
+
+                @if (session('email'))
+                <div class="alert alert-danger">
+                    {{ session('email') }}
+                </div>
+                @endif
 
                 {{-- Campo contraseña --}}
                 <div class="mb-3 form-floating position-relative">
@@ -22,15 +36,17 @@
                     <div class="invalid-feedback"><i class="bi bi-exclamation-octagon-fill"></i> Contraseña no válida (Requerida y mínimo 8 caracteres)</div>
                 </div>
 
-                {{-- Campo recuerdame --}}
-                <div class="form-check mb-3 form-switch">
-                    <label for="check-remember" class="form-check-label">Recuérdame</label>
-                    <input type="checkbox" name="remember" id="check-remember" class="form-check-input"/>
+                {{-- Campo repite contraseña --}}
+                <div class="mb-3 form-floating position-relative">
+                    <input type="password" name="password2" id="input-password2" class="form-control" placeholder=" " required minlength="8"/>
+                    <label for="input-password2" class="form-label">Repite contraseña</label>
+                    <div class="valid-feedback"><i class="bi bi-check-lg"></i> Válido </div>
+                    <div class="invalid-feedback"><i class="bi bi-exclamation-octagon-fill"></i> Contraseña no válida (Requerida y mínimo 8 caracteres)</div>
                 </div>
 
-                @if (session('invalido'))
+                @if (session('password'))
                 <div class="alert alert-danger">
-                    {{ session('invalido') }}
+                    {{ session('password') }}
                 </div>
                 @endif
             
