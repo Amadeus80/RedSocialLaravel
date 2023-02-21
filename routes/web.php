@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Post;
+use App\Http\Controllers\AuthController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,18 +14,14 @@ use App\Models\Post;
 |
 */
 
-/* Route::get('/', function () {
-    return view('inicio');
-})->name("inicio"); */
 
-Route::view("/", "login")->name("login")->middleware("guest");
+Route::view("login", "login")->name("login")->middleware("guest");
 Route::view("register", "register")->name("register")->middleware("guest");
-
-Route::view("inicio", "inicio")->name("inicio")->middleware("guest");
-
+Route::view("/", "inicio")->name("inicio")->middleware("auth");
 
 
-Route::post("login", [AuthController::class, "login"])->name("login.log")->middleware("auth");
-Route::post("register", [AuthController::class, "register"])->name("register.log")->middleware("auth");
+
+Route::post("login", [AuthController::class, "login"])->name("login.log")->middleware("guest");
+Route::post("register", [AuthController::class, "register"])->name("register.log")->middleware("guest");
 
 Route::post("logout", [AuthController::class, "logout"])->name("logout")->middleware("auth");
