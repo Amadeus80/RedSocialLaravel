@@ -14,14 +14,14 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-
+Route::view("/", "portada")->name("portada");
 Route::view("login", "login")->name("login")->middleware("guest");
 Route::view("register", "register")->name("register")->middleware("guest");
-Route::view("/", "inicio")->name("inicio")->middleware("auth");
+Route::view("inicio", "inicio")->name("inicio")->middleware("auth");
 
 
-
-Route::post("login", [AuthController::class, "login"])->name("login.log")->middleware("guest");
-Route::post("register", [AuthController::class, "register"])->name("register.log")->middleware("guest");
-
-Route::post("logout", [AuthController::class, "logout"])->name("logout")->middleware("auth");
+Route::controller(AuthController::class)->group(function(){
+    Route::post("login", "login")->name("login.log")->middleware("guest");
+    Route::post("register", "register")->name("register.log")->middleware("guest");
+    Route::post("logout", "logout")->name("logout")->middleware("auth");
+});
