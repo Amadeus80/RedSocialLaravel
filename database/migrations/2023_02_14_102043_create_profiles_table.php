@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->string("fullname");
-            $table->string("location");
-            $table->string("age", 3);
+            $table->string("fullname")->nullable();
+            $table->string("location")->nullable();
+            $table->string("age", 3)->nullable();
             $table->text("img");
             $table->unsignedBigInteger("user_id")->unique();
             $table->foreign("user_id")->references("id")->on("users")->onDelete("cascade")->onUpdate("cascade");

@@ -10,12 +10,19 @@
 </head>
 <style>
     body{
-        background-image: url("https://images.pexels.com/photos/733853/pexels-photo-733853.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+        background-image: url("img/background.jpg");
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
         height: 100vh;
     }
+
+    @media (max-width: 578px) {
+        body{
+            background-position: top left;
+        }
+    }
+
 </style>
 <body>
 

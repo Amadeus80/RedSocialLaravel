@@ -6,13 +6,19 @@
                 @csrf
                 <legend class="text-center fs-1"><i class="bi bi-people"></i> Register</legend>
             
-                {{-- Campo nombre --}}
+                {{-- Campo username --}}
                 <div class="mb-3 form-floating position-relative">
                     <input type="text" name="name" id="input-email" class="form-control" placeholder=" " required />
-                    <label for="input-email" class="form-label">Nombre</label>
+                    <label for="input-email" class="form-label">Username</label>
                     <div class="valid-feedback"><i class="bi bi-check-lg"></i> Válido</div>
-                    <div class="invalid-feedback"><i class="bi bi-exclamation-octagon-fill"></i> Nombre requerido</div>
+                    <div class="invalid-feedback"><i class="bi bi-exclamation-octagon-fill"></i> Nombre de usuario requerido</div>
                 </div>
+
+                @if (session('username'))
+                <div class="alert alert-danger">
+                    {{ session('username') }}
+                </div>
+                @endif
 
                 {{-- Campo email --}}
                 <div class="mb-3 form-floating position-relative">

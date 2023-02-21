@@ -2,6 +2,6 @@
 
 @section("title", "Perfil")
 
-@section('content')    
-    Perfil
+@section('content')
+
 @endsection

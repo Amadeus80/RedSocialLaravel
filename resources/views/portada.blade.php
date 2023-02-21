@@ -1,7 +1,7 @@
 @extends('layout.plantilla')
 
-@section("title", "Twitter")
+@section("title", "Portada")
 
 @section('content')    
-    PORTADA
+    
 @endsection

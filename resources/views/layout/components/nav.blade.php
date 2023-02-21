@@ -2,17 +2,26 @@
     .boton{
         margin-left:-10px; 
     }
-
+/* 
     nav{
-        background-color: red !important;
         opacity: 0.9;
+    } */
+
+    .nombreUser{
+        text-overflow: ellipsis ;
+        white-space: nowrap;
+        width: 200px !important;
+        overflow: hidden;
     }
 </style>
+@php
+    use App\models\Profile;
+@endphp
 
-<nav class="navbar sticky-top bg-body-tertiary">
+<nav class="navbar sticky-top bg-body-tertiary bg-opacity-75">
     <div class="container-fluid">
         @auth
-        <a class="navbar-brand fs-2" data-bs-toggle="offcanvas" href="#offcanvasExample"><img src="https://icones.pro/wp-content/uploads/2021/03/avatar-de-personne-icone-homme.png" alt="foto de perfil" class="rounded-circle" width="50" height="50"></a>
+        <a class="navbar-brand fs-2" data-bs-toggle="offcanvas" href="#offcanvasExample"><img src="{{asset(Profile::where("user_id", Auth::user()->id)->first()->img)}}" alt="foto de perfil" class="rounded-circle" width="50" height="50"></a>
         @endauth
 
         @auth
@@ -33,10 +42,10 @@
     </div>
 </nav>
 
-
+@auth
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">
-      <h1 class="offcanvas-title d-flex justify-content-evenly w-50" id="offcanvasExampleLabel"><img src="https://icones.pro/wp-content/uploads/2021/03/avatar-de-personne-icone-homme.png" alt="foto de perfil" class="rounded-circle" width="50" height="50"> Pablo</h1>
+      <h3 class="offcanvas-title d-flex justify-content-around w-75" id="offcanvasExampleLabel"><img src="{{asset(Profile::where("user_id", Auth::user()->id)->first()->img)}}" alt="foto de perfil" class="rounded-circle" width="50" height="50"> <span class="nombreUser">{{ucfirst(Auth::user()->name)}}</span></h3>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
@@ -55,3 +64,4 @@
         </div>
     </div>
 </div>
+@endauth
