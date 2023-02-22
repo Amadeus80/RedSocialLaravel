@@ -23,7 +23,6 @@ class PostFactory extends Factory
         return [
             'titulo' => $this->faker->unique()->sentence(),
             'img' => 'img/posts/'.$this->faker->image("public/img/posts", 640, 480, null, false),
-            'likes' => rand(1, 100),
             'user_id' => User::all()->random()->id,
         ];
     }
