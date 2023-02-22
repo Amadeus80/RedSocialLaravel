@@ -2,9 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\models\Follow;
-use App\models\User;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,22 +18,11 @@ use Illuminate\Support\Facades\Auth;
 Route::view("/", "portada")->name("portada");
 Route::view("login", "login")->name("login")->middleware("guest");
 Route::view("register", "register")->name("register")->middleware("guest");
-Route::get("inicio", function(){
-    $user_follow = Follow::where("user_id", Auth::user()->id)->get();
-
-    $posts = Auth::user()->post;
-
-    foreach ($user_follow as $user){
-        foreach (User::find($user->user_follow_id)->post as $post){
-                $posts[] = $post;
-        }
-    }
-    
-    $posts = $posts->sortByDesc("created_at");
-    return view("inicio", compact("posts"));
-})->name("inicio")->middleware("auth");
-/* Route::view("inicio", "inicio")->name("inicio")->middleware("auth"); */
 Route::view("perfil", "perfil")->name("perfil")->middleware("auth");
+
+Route::controller(PostController::class)->group(function(){
+    Route::get("inicio", "timeline")->name("inicio")->middleware("auth");
+});
 
 
 Route::controller(AuthController::class)->group(function(){
