@@ -20,6 +20,10 @@
 
 </style>
 
+@php
+    use App\models\Like;
+@endphp
+
 <div class="container p-4 rounded d-flex flex-column justify-content-center">{{-- Div fondo --}}
     @foreach ($posts as $post)
         <div class="post container-fluid w-100 mx-auto mb-5"> {{-- Div Card --}}
@@ -38,8 +42,12 @@
             </div>
         
             <div class="bg-dark-subtle m-auto rounded-bottom p-2 d-flex align-items-center">
-                <i class="icono bi bi-heart fs-2 mx-2"></i>
-                <i class="icono bi bi-chat fs-2 mx-2"></i>
+                <div class="text-center mx-2 d-flex flex-column">
+                    <a href="#"><i class="icono bi bi-heart fs-2"></i></a><span>{{count(Like::where("post_id", $post->id)->get())}}</span>
+                </div>
+                <div class="text-center mx-2 d-flex flex-column">
+                    <a href="#"><i class="icono bi bi-chat fs-2"></i></a><span>{{count($post->comment)}}</span>
+                </div> 
                 <h4 class="tituloPost m-auto p-1">{{$post->titulo}}</h4>
             </div>
         </div>
