@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +18,11 @@ use App\Http\Controllers\AuthController;
 Route::view("/", "portada")->name("portada");
 Route::view("login", "login")->name("login")->middleware("guest");
 Route::view("register", "register")->name("register")->middleware("guest");
-Route::view("inicio", "inicio")->name("inicio")->middleware("auth");
 Route::view("perfil", "perfil")->name("perfil")->middleware("auth");
+
+Route::controller(PostController::class)->group(function(){
+    Route::get("inicio", "timeline")->name("inicio")->middleware("auth");
+});
 
 
 Route::controller(AuthController::class)->group(function(){
