@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\models\Follow;
+use App\models\User;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +20,22 @@ use App\Http\Controllers\AuthController;
 Route::view("/", "portada")->name("portada");
 Route::view("login", "login")->name("login")->middleware("guest");
 Route::view("register", "register")->name("register")->middleware("guest");
-Route::view("inicio", "inicio")->name("inicio")->middleware("auth");
+Route::get("inicio", function(){
+    $user_follow = Follow::where("user_id", Auth::user()->id)->get();
+
+    $posts = [];
+
+    foreach ($user_follow as $user){
+        /* $posts[] = (string)$user->user_id; */
+        /* foreach (User::find($user->user_id)->post as $post){
+                $posts[] = $post;
+        } */
+    }
+    
+    /* $posts = $posts->sortByDesc("created_at"); */
+    return view("inicio", compact("posts"));
+})->name("inicio")->middleware("auth");
+/* Route::view("inicio", "inicio")->name("inicio")->middleware("auth"); */
 Route::view("perfil", "perfil")->name("perfil")->middleware("auth");
 
 
