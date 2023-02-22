@@ -32,8 +32,7 @@
 @endforeach --}}
 
 <div class="container p-4 rounded d-flex flex-column justify-content-center">{{-- Div fondo --}}
-
-    @foreach
+    @foreach ($posts as $post)
         <div class="post container-fluid w-100 mx-auto mb-5"> {{-- Div Card --}}
             <div class="bg-dark-subtle rounded-top">
                 <div class="d-flex align-items-center gap-3 ms-4">
