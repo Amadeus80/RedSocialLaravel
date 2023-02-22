@@ -11,6 +11,7 @@
 <style>
     body{
         background-image: url("img/background.jpg");
+        background-attachment: fixed;
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
