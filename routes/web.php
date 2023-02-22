@@ -23,16 +23,15 @@ Route::view("register", "register")->name("register")->middleware("guest");
 Route::get("inicio", function(){
     $user_follow = Follow::where("user_id", Auth::user()->id)->get();
 
-    $posts = [];
+    $posts = Auth::user()->post;
 
     foreach ($user_follow as $user){
-        /* $posts[] = (string)$user->user_id; */
-        /* foreach (User::find($user->user_id)->post as $post){
+        foreach (User::find($user->user_follow_id)->post as $post){
                 $posts[] = $post;
-        } */
+        }
     }
     
-    /* $posts = $posts->sortByDesc("created_at"); */
+    $posts = $posts->sortByDesc("created_at");
     return view("inicio", compact("posts"));
 })->name("inicio")->middleware("auth");
 /* Route::view("inicio", "inicio")->name("inicio")->middleware("auth"); */
