@@ -21,9 +21,9 @@
         @endauth
 
         @auth
-            <a href="{{route('inicio')}}" class="text-decoration-none text-dark m-auto"><h2>Logo</h2></a>
+            <a href="{{route('inicio')}}" class="text-decoration-none text-dark m-auto"><h2 class=""><img src="https://img.freepik.com/iconos-gratis/camara-fotografica_318-830527.jpg" alt="logo camara" width="75" height="75"></h2></a>
         @else
-            <a href="{{route('login')}}" class="text-decoration-none text-dark m-auto"><h2>Logo</h2></a>
+            <a href="{{route('login')}}" class="text-decoration-none text-dark m-auto"><h2 class=""><img src="https://img.freepik.com/iconos-gratis/camara-fotografica_318-830527.jpg" alt="logo camara" width="75" height="75"></h2></a>
         @endauth
         @guest
             <a href="{{route("login")}}" class="btn btn-outline-dark">Login</a>
