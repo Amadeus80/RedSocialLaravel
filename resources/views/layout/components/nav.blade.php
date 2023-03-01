@@ -48,7 +48,7 @@
         <div class="d-flex flex-column gap-3 align-items-center">
             <a href="{{route('inicio')}}" class="btn btn-outline-dark w-50 fs-5 {{request()->routeIs("inicio")?'active':''}}"><i class="bi bi-house-fill"></i> Inicio</a>
             <a href="{{route('perfil')}}" class="btn btn-outline-dark w-50 fs-5 {{request()->routeIs("perfil")?'active':''}}"><i class="bi bi-person-square"></i> Perfil</a>
-            <a href="#" class="btn btn-outline-dark w-50 fs-5"><i class="bi bi-camera-fill"></i> Nuevo post</a>
+            <a class="btn btn-outline-dark w-50 fs-5" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-camera-fill"></i> Nuevo post</a>
         </div>
     </div>
     <div class="offcanvas-footer mb-5">
@@ -60,4 +60,21 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Publicar post</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Publicar post</button>
+        </div>
+      </div>
+    </div>
+  </div>
 @endauth

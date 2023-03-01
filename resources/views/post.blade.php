@@ -51,7 +51,7 @@
             <h3 class="text-center w-100">Comentarios</h3>
 
             <div class="comment border-top border-dark p-3">
-                <h4>Realizar comentario: </h4>
+                {{-- <h4>Realizar comentario: </h4> --}}
                 <div class="comment__info d-flex gap-2">
                     <img src="{{asset(Auth::user()->profile->img)}}" alt="Imagen Usuario Auth" width="50px" height="50px" class="rounded-circle">
                     <div class="comment__text d-flex justify-content align-items-center">
@@ -60,7 +60,7 @@
                     <div class="w-100">
                         <form action="{{route('comentario')}}" class="d-flex justify-content align-items-center gap-3" method="post">
                             @csrf
-                            <textarea type="text" name="comentario" id="comentario" style="resize: none" maxlength="500" class="d-block w-100 rounded"></textarea>
+                            <textarea type="text" name="comentario" id="comentario" style="resize: none" maxlength="500" class="d-block form-control" placeholder="Realizar comentario..."></textarea>
                             <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
                             <input type="hidden" name="post_id" value="{{$post->id}}">
                             <input type="submit" value="Comentar" class="btn btn-outline-success">
