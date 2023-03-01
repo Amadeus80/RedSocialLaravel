@@ -23,6 +23,8 @@ Route::view("perfil", "perfil")->name("perfil")->middleware("auth");
 Route::controller(PostController::class)->group(function(){
     Route::get("inicio", "timeline")->name("inicio")->middleware("auth");
     Route::get("post/{id}", "mostrarPost")->name("post")->middleware("auth");
+    Route::post("realizarComentario", "realizarComentario")->name("comentario")->middleware("auth");
+    Route::delete("borrarComentario", "borrarComentario")->name("borrarComentario")->middleware("auth");
 });
 
 

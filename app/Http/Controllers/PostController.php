@@ -33,4 +33,20 @@ class PostController extends Controller
 
         return view("post", compact("post", "like"));
     }
+
+    function realizarComentario(Request $request){
+        $comentario = new Comment();
+        $comentario->content = $request->comentario;  
+        $comentario->user_id = $request->user_id;  
+        $comentario->post_id = $request->post_id;  
+        $comentario->save();
+        return to_route('post', ['id' => $request->post_id])->with("mensaje", "Comentario insertado correctamente");
+    }
+
+    function borrarComentario(Request $request){
+        $comentario = Comment::find($request->comment_id);
+        $comentario->delete();
+        return to_route('post', ['id' => $request->post_id])->with("mensajeBorrado", "Comentario borrado correctamente");
+    }
+
 }

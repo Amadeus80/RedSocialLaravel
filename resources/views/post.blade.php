@@ -58,12 +58,25 @@
                         <small>{{Auth::user()->name}}</small>
                     </div>
                     <div class="w-100">
-                        <form action="#" class="d-flex justify-content align-items-center gap-3">
+                        <form action="{{route('comentario')}}" class="d-flex justify-content align-items-center gap-3" method="post">
+                            @csrf
                             <textarea type="text" name="comentario" id="comentario" style="resize: none" maxlength="500" class="d-block w-100 rounded"></textarea>
+                            <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                            <input type="hidden" name="post_id" value="{{$post->id}}">
                             <input type="submit" value="Comentar" class="btn btn-outline-success">
                         </form>
                     </div>
                 </div>
+                @if (session('mensaje'))
+                    <div class="alert alert-success mt-3">
+                        {{ session('mensaje') }}
+                    </div>
+                @endif
+                @if (session('mensajeBorrado'))
+                    <div class="alert alert-danger mt-3">
+                        {{ session('mensajeBorrado') }}
+                    </div>
+                @endif
             </div>
 
             @if (count($post->comment)>0)
@@ -75,8 +88,17 @@
                                 <small>{{$comment->user->name}}</small>
                                 <small class="d-block">{{$comment->created_at}}</small>
                             </div>
+                            @if (Auth::user()->id == $comment->user->id)
+                                <form action="{{route('borrarComentario')}}" method="post">
+                                    @csrf
+                                    @method("DELETE")
+                                    <input class="btn btn-outline-danger" type="submit" value="Borrar">
+                                    <input type="hidden" name="post_id" value="{{$post->id}}">
+                                    <input type="hidden" name="comment_id" value="{{$comment->id}}">
+                                </form>
+                            @endif
                         </div>
-                        <p>{{$comment->content}}</p>
+                        <p class="mt-3">{{$comment->content}}</p>
                     </div>
                 @endforeach 
             @else
@@ -85,4 +107,5 @@
         </div>
     </div>
 </div>
+
 @endsection
