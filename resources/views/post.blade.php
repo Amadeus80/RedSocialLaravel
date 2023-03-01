@@ -51,12 +51,8 @@
             <h3 class="text-center w-100">Comentarios</h3>
 
             <div class="comment border-top border-dark p-3">
-                {{-- <h4>Realizar comentario: </h4> --}}
                 <div class="comment__info d-flex gap-2">
                     <img src="{{asset(Auth::user()->profile->img)}}" alt="Imagen Usuario Auth" width="50px" height="50px" class="rounded-circle">
-                    <div class="comment__text d-flex justify-content align-items-center">
-                        <small>{{Auth::user()->name}}</small>
-                    </div>
                     <div class="w-100">
                         <form action="{{route('comentario')}}" class="d-flex justify-content align-items-center gap-3" method="post">
                             @csrf
