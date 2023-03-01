@@ -8,6 +8,7 @@ use App\Models\Follow;
 use App\Models\User;
 use App\Models\Post;
 use App\Models\Comment;
+use App\Models\Like;
 
 class PostController extends Controller
 {
@@ -28,7 +29,8 @@ class PostController extends Controller
 
     function mostrarPost($id){
         $post = Post::find($id);
+        $like = count(Like::where("post_id", $id)->get());
 
-        return view("post", compact("post"));
+        return view("post", compact("post", "like"));
     }
 }
