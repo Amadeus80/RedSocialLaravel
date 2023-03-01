@@ -68,12 +68,24 @@
           <h1 class="modal-title fs-5" id="exampleModalLabel">Publicar post</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <form action="#" class="needs-validation" novalidate method="POST">
         <div class="modal-body">
-          ...
+                <div class="mb-3 form-floating position-relative">
+                    <input type="text" name="titulo" id="titulo" class="form-control" placeholder=" " required />
+                    <label for="titulo" class="form-label">Titulo</label>
+                    <div class="valid-feedback"><i class="bi bi-check-lg"></i> Válido</div>
+                    <div class="invalid-feedback"><i class="bi bi-exclamation-octagon-fill"></i> Email no válido</div>
+                </div>
+                <div class="mb-3">
+                    <label for="file" class="form-label">Seleccionar imagen...</label>
+                    <input class="form-control" type="file" id="file">
+                </div>
+            
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Publicar post</button>
+          <input type="submit" class="btn btn-primary" value="Publicar post"></input>
         </div>
+        </form>
       </div>
     </div>
   </div>
