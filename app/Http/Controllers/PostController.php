@@ -49,4 +49,12 @@ class PostController extends Controller
         return to_route('post', ['id' => $request->post_id])->with("mensajeBorrado", "Comentario borrado correctamente");
     }
 
+    function publicarPost(Request $request){
+        $request->validate([
+            'file' => 'image|max:5120',
+        ]);
+        
+        return $request->file('file');
+    }
+
 }

@@ -26,10 +26,15 @@
 
 </style>
 <body>
-
     {{-- NAVBAR --}}
     @include('layout.components.nav')
     
+    @error('file')
+        <div class="alert container alert-danger mt-3">
+            {{$message}}
+        </div>
+        {{-- <h1 class="text-danger text-center mt-5"></h1> --}}
+    @enderror
     {{-- CONTENIDO --}}
     <div class="mt-4">
         @yield("content")

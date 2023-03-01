@@ -25,6 +25,7 @@ Route::controller(PostController::class)->group(function(){
     Route::get("post/{id}", "mostrarPost")->name("post")->middleware("auth");
     Route::post("realizarComentario", "realizarComentario")->name("comentario")->middleware("auth");
     Route::delete("borrarComentario", "borrarComentario")->name("borrarComentario")->middleware("auth");
+    Route::post("publicarPost", "publicarPost")->name("publicarPost")->middleware("auth");
 });
 
 
