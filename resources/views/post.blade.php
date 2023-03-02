@@ -41,7 +41,11 @@
         <div class="bg-dark-subtle rounded-bottom p-3">
             <div class="interacciones d-flex justify-content-center">
                 <div class="text-center mx-2">
-                    <a href="#"><i class="icono bi bi-heart fs-2 text-dark"></i></a><span class="ms-2">{{$like}}</span>
+                    @if (!$comprobarLike)
+                        <a href="darLike" id="{{$post->id}}" class="likes"><i class="icono bi bi-heart fs-2 text-dark"></i></a><span class="ms-2">{{$like}}</span>
+                    @else 
+                        <a href="quitarLike" id="{{$post->id}}" class="likes"><i class="icono bi bi-heart-fill fs-2 text-dark"></i></a><span class="ms-2">{{$like}}</span>
+                    @endif
                 </div>
                 <div class="text-center mx-2">
                     <a href="#"><i class="icono bi bi-chat fs-2 text-dark"></i></a><span class="ms-2">{{count($post->comment)}}</span>
@@ -105,3 +109,27 @@
 </div>
 
 @endsection
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+<script>
+
+    $(function () {
+        $(".likes").click(function ( event ){
+            event.preventDefault();
+            $.get("http://127.0.0.1:8000/"+$(this).attr("href")+"/"+$(this).attr("id"), function (datos) {
+
+            });
+            if ($(this).attr("href")=="darLike") {
+                $(this).next().html(parseInt($(this).next().html())+1);   
+                $(this).children().attr("class", "icono bi bi-heart-fill fs-2 text-dark");
+                $(this).attr("href", "quitarLike");
+            } else {
+                $(this).next().html(parseInt($(this).next().html())-1);  
+                $(this).children().attr("class", "icono bi bi-heart fs-2 text-dark");
+                $(this).attr("href", "darLike");
+            }
+        })
+    });
+
+</script>

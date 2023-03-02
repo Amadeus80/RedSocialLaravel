@@ -26,6 +26,8 @@ Route::controller(PostController::class)->group(function(){
     Route::post("realizarComentario", "realizarComentario")->name("comentario")->middleware("auth");
     Route::delete("borrarComentario", "borrarComentario")->name("borrarComentario")->middleware("auth");
     Route::post("publicarPost", "publicarPost")->name("publicarPost")->middleware("auth");
+    Route::get("darLike/{id}", "darLike")->name("darLike")->middleware("auth");
+    Route::get("quitarLike/{id}", "quitarLike")->name("quitarLike")->middleware("auth");
 });
 
 
