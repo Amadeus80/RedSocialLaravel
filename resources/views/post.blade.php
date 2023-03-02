@@ -31,7 +31,7 @@
         </div>
     
         <div class="m-auto">
-            <a href="#"><img src="{{asset($post->img)}}" alt="Imagen Post" class="img-fluid w-100"></a>
+            <img src="{{asset($post->img)}}" alt="Imagen Post" class="img-fluid w-100">
         </div>
     
         <div class="bg-dark-subtle m-auto p-2 d-flex align-items-center">

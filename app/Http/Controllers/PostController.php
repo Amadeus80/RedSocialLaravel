@@ -53,8 +53,19 @@ class PostController extends Controller
         $request->validate([
             'file' => 'image|max:5120',
         ]);
-        
-        return $request->file('file');
+
+        $post = new Post();
+        $post->titulo = $request->titulo;
+
+        $ruta = public_path("img/posts/");
+        $imagen = $request->file('file');
+        $nombreImagen = $imagen->hashName();
+        $imagen->move($ruta, $nombreImagen);
+        $post->img = "img/posts/".$nombreImagen;
+
+        $post->user_id = Auth::user()->id;
+        $post->save();
+        return back()->with("postPublicado", "El post se ha publicado correctamente");
     }
 
 }

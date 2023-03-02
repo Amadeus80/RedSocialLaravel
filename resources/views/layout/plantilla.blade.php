@@ -29,12 +29,20 @@
     {{-- NAVBAR --}}
     @include('layout.components.nav')
     
+    {{-- MENSAJE DE ERROR CUANDO SUBES UNA FOTO NO PERMITIDA --}}
     @error('file')
         <div class="alert container alert-danger mt-3">
             {{$message}}
         </div>
-        {{-- <h1 class="text-danger text-center mt-5"></h1> --}}
     @enderror
+
+    {{--  --}}
+    @if (session('postPublicado'))
+        <div class="alert container alert-success mt-3">
+            {{ session('postPublicado') }}
+        </div>
+    @endif
+
     {{-- CONTENIDO --}}
     <div class="mt-4">
         @yield("content")

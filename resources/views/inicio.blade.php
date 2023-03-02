@@ -39,7 +39,7 @@
                 </div>
             
                 <div class="m-auto">
-                    <a href="{{route('post', $post->id)}}"><img src="{{asset($post->img)}}" alt="imagen" class="img-fluid w-100"></a>
+                    <a href="{{route('post', $post->id)}}"><img src="{{asset($post->img)}}" alt="imagen" loading="lazy" class="img-fluid w-100"></a>
                 </div>
             
                 <div class="bg-dark-subtle m-auto rounded-bottom p-2 d-flex align-items-center">
