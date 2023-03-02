@@ -25,7 +25,8 @@
 @endphp
 
 <div class="container p-4 rounded d-flex flex-column justify-content-center">{{-- Div fondo --}}
-    @if (count($posts) > 0)    
+    @if (count($posts) > 0)
+        <h1 class="text-center text-white pb-5">Timeline</h1>    
         @foreach ($posts as $post)
             <div class="post container-fluid w-100 mx-auto mb-5"> {{-- Div Card --}}
                 <div class="bg-dark-subtle rounded-top">
