@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,10 @@ Route::controller(PostController::class)->group(function(){
     Route::post("publicarPost", "publicarPost")->name("publicarPost")->middleware("auth");
     Route::get("darLike/{id}", "darLike")->name("darLike")->middleware("auth");
     Route::get("quitarLike/{id}", "quitarLike")->name("quitarLike")->middleware("auth");
+});
+
+Route::controller(UserController::class)->group(function(){
+    Route::get("user/{nombre}", "usersByWord")->name("users")->middleware("auth");
 });
 
 

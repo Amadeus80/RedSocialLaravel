@@ -1,10 +1,10 @@
 <div class="container-md">
     <div class="row d-flex justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-6 p-5">
         <!-- Formulario -->
             <form action="{{route("login.log")}}" class="needs-validation" novalidate method="POST">
                 @csrf
-                <legend class="text-center fs-1"><i class="bi bi-people"></i> Login</legend>
+                <legend class="text-center fs-1 text-white"><i class="bi bi-people"></i> Login</legend>
             
                 {{-- Campo email --}}
                 <div class="mb-3 form-floating position-relative">
@@ -23,8 +23,8 @@
                 </div>
 
                 {{-- Campo recuerdame --}}
-                <div class="form-check mb-3 form-switch">
-                    <label for="check-remember" class="form-check-label">Recuérdame</label>
+                <div class="form-check mb-3 form-switch fs-5">
+                    <label for="check-remember" class="form-check-label text-white">Recuérdame</label>
                     <input type="checkbox" name="remember" id="check-remember" class="form-check-input"/>
                 </div>
 
@@ -36,7 +36,7 @@
             
                 {{-- Submit --}}
                 <div class="text-center">
-                    <button type="submit" class="btn btn-outline-danger">Entrar <i class="bi bi-arrow-up-right-square"></i></button>
+                    <button type="submit" class="btn btn-danger">Entrar <i class="bi bi-arrow-up-right-square"></i></button>
                 </div>
             </form>
         </div>

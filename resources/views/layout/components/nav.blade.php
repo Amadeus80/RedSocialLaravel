@@ -1,4 +1,5 @@
 @vite(['resources/css/nav.css'])
+{{-- BARRA DE NAVEGACiÓN --}}
 <nav class="navbar sticky-top bg-body-tertiary bg-opacity-75">
     <div class="container-fluid">
         @auth
@@ -16,14 +17,15 @@
         @endguest
         @auth    
         <form class="d-flex" role="search">
-            <input class="form-control me-2 rounded-end-0" type="search" placeholder="Buscar..." aria-label="Search">
-            <button class="btn boton rounded-start-0 bg-dark border border-dark text-white" type="submit"><i class="bi bi-search"></i></button>
+            <input class="form-control me-2 rounded-end-0" type="search" placeholder="Buscar..." aria-label="Search" data-bs-toggle="modal" data-bs-target="#modalBusqueda">
+            <span class="btn boton rounded-start-0 bg-dark border border-dark text-white" data-bs-toggle="modal" data-bs-target="#modalBusqueda"><i class="bi bi-search"></i></span>
         </form>
       @endauth
     </div>
 </nav>
 
 @auth
+{{-- OFFCANVAS IZQUIERDA --}}
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">
       <h3 class="offcanvas-title d-flex justify-content-around w-75" id="offcanvasExampleLabel"><img src="{{asset(Auth::user()->profile->img)}}" alt="foto de perfil" class="rounded-circle" width="50" height="50"> <span class="nombreUser">{{ucfirst(Auth::user()->name)}}</span></h3>
@@ -46,34 +48,59 @@
     </div>
 </div>
 
+{{-- MODAL PUBLICAR POST --}}
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Publicar post</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Publicar post</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="{{route('publicarPost')}}" class="needs-validation" novalidate method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="modal-body">
+                    <div class="mb-3 form-floating position-relative">
+                        <input type="text" name="titulo" id="titulo" class="form-control" placeholder=" " required />
+                        <label for="titulo" class="form-label">Titulo</label>
+                        <div class="invalid-feedback"><i class="bi bi-exclamation-octagon-fill"></i> Debes añadir un titulo</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="file" class="form-label">Seleccionar imagen...</label>
+                        <input class="form-control" name="file" type="file" id="file" required>
+                        <div class="invalid-feedback"><i class="bi bi-exclamation-octagon-fill"></i> Debes insertar una imagen</div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" class="btn btn-primary" value="Publicar post"></input>
+                </div>
+            </form>
         </div>
-        <form action="{{route('publicarPost')}}" class="needs-validation" novalidate method="POST" enctype="multipart/form-data">
-            @csrf
-            <div class="modal-body">
-                <div class="mb-3 form-floating position-relative">
-                    <input type="text" name="titulo" id="titulo" class="form-control" placeholder=" " required />
-                    <label for="titulo" class="form-label">Titulo</label>
-                    <div class="invalid-feedback"><i class="bi bi-exclamation-octagon-fill"></i> Debes añadir un titulo</div>
-                </div>
-                <div class="mb-3">
-                    <label for="file" class="form-label">Seleccionar imagen...</label>
-                    <input class="form-control" name="file" type="file" id="file" required>
-                    <div class="invalid-feedback"><i class="bi bi-exclamation-octagon-fill"></i> Debes insertar una imagen</div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <input type="submit" class="btn btn-primary" value="Publicar post"></input>
-            </div>
-        </form>
-      </div>
     </div>
-  </div>
+</div>
+
+
+
+{{-- MODAL BUSQUEDA --}}
+<div class="modal fade" id="modalBusqueda" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Busqueda</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2 rounded-end-0" type="search" placeholder="Buscar..." aria-label="Search" id="campoBusqueda">
+                    <span class="btn boton rounded-start-0 bg-dark border border-dark text-white"><i class="bi bi-search"></i></span>
+                </form>
+                <div class="usuarios p-4 d-flex flex-column gap-4" id="usuarios">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 @endauth
 
 <script>

@@ -1,8 +1,10 @@
 import './bootstrap';
 import '../css/app.scss';
+import { forEach } from 'lodash';
 
-/* Funcion de jquery para hacer una peticion ajax y dar like a algun post */
+
 $(function () {
+    /* Hace una peticion ajax y dar like a algun post */
     let elemento;
     let x = $( document );
     $(".likes").click(function ( event ){
@@ -25,4 +27,24 @@ $(function () {
             }
         });
     })
+
+    /* RECUPERA CON PETICION AJEX USUARIOS QUE TENGAN EN SU NOMBRE LA CADENA ESCRITA EN EL INPUT */
+    $("#campoBusqueda").keyup(function(){
+        if(($(this).val()).length >= 2){
+            $.get(`http://127.0.0.1:8000/user/${$(this).val()}`, function(usuarios){
+                let data = "";
+                if(usuarios.length != 0){
+                    for (const usuario of usuarios) {
+                        data += `<div class="d-flex gap-3 align-items-center"><img src="${usuario.img}" class="rounded-circle" width="50" height="50"> ${usuario.name}</div>`;
+                    }
+                    
+                }
+                else{
+                    data = "<h2 class='text-center'>Sin coincidencias...</h2>";
+                }
+                $("#usuarios").html(data);
+            })
+        }
+    });
+
 });

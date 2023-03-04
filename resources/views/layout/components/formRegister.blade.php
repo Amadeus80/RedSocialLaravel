@@ -4,7 +4,7 @@
         <!-- Formulario -->
             <form action="{{route("register.log")}}" class="needs-validation" novalidate method="POST">
                 @csrf
-                <legend class="text-center fs-1"><i class="bi bi-people"></i> Register</legend>
+                <legend class="text-center fs-1 text-white"><i class="bi bi-people"></i> Register</legend>
             
                 {{-- Campo username --}}
                 <div class="mb-3 form-floating position-relative">
@@ -58,7 +58,7 @@
             
                 {{-- Submit --}}
                 <div class="text-center">
-                    <button type="submit" class="btn btn-outline-danger">Entrar <i class="bi bi-arrow-up-right-square"></i></button>
+                    <button type="submit" class="btn btn-danger">Entrar <i class="bi bi-arrow-up-right-square"></i></button>
                 </div>
             </form>
         </div>

@@ -3,7 +3,7 @@
 @section("title", "Portada")
 
 @section('content')  
-    <h1 class="text-center pt-4 text-white">Inicio</h1>
+    <h1 class="text-center pt-4 text-white">Portada</h1>
     <div class="container p-5">
         <div id="carouselExample" class="carousel slide">
             <div class="carousel-indicators">
