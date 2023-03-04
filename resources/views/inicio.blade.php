@@ -31,10 +31,14 @@
             
                 <div class="bg-dark-subtle m-auto rounded-bottom p-2 d-flex align-items-center">
                     <div class="text-center mx-2 d-flex flex-column">
-                        <a href="#"><i class="icono bi bi-heart fs-2"></i></a><span>{{count(Like::where("post_id", $post->id)->get())}}</span>
+                        @if (!Like::where("post_id", $post->id)->where("user_id", Auth::user()->id)->first())
+                            <a href="darLike" id="{{$post->id}}" class="likes"><i class="icono bi bi-heart fs-2 text-dark"></i></a><span>{{count(Like::where("post_id", $post->id)->get())}}</span>
+                        @else
+                            <a href="quitarLike" id="{{$post->id}}" class="likes"><i class="icono bi bi-heart-fill fs-2 text-dark"></i></a><span>{{count(Like::where("post_id", $post->id)->get())}}</span>
+                        @endif
                     </div>
                     <div class="text-center mx-2 d-flex flex-column">
-                        <a href="{{route('post', $post->id)}}"><i class="icono bi bi-chat fs-2"></i></a><span>{{count($post->comment)}}</span>
+                        <a href="{{route('post', $post->id)}}"><i class="icono bi bi-chat fs-2 text-dark"></i></a><span>{{count($post->comment)}}</span>
                     </div> 
                     <h4 class="tituloPost m-auto p-1">{{$post->titulo}}</h4>
                 </div>

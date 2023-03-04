@@ -31,21 +31,9 @@ class PostController extends Controller
         $post = Post::find($id);
         $like = count(Like::where("post_id", $id)->get());
 
-        /* $postLike = Like::where("post_id", $id, )->get();
-        $comprobarLike = false;
-        foreach ($postLike as $pl) {
-            if ($pl->user_id==Auth::user()->id) {
-                $comprobarLike = true;
-            }
-        } */
-
         $postLike = Like::where("post_id", $id)->where("user_id", Auth::user()->id)->first();
-        $comprobarLike = false;
-        if ($postLike) {
-            $comprobarLike = true;
-        }
 
-        return view("post", compact("post", "like", "comprobarLike"));
+        return view("post", compact("post", "like", "postLike"));
     }
 
     function realizarComentario(Request $request){
@@ -88,14 +76,10 @@ class PostController extends Controller
         $like->user_id = Auth::user()->id;
         $like->post_id = $id;
         $like->save();
-
-        // return $id;
     }
 
     function quitarLike($id){
-
         Like::where("post_id", $id)->where("user_id", Auth::user()->id)->delete();
-
     }
 
 }

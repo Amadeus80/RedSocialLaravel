@@ -29,7 +29,7 @@
         <div class="bg-dark-subtle rounded-bottom p-3">
             <div class="interacciones d-flex justify-content-center">
                 <div class="text-center mx-2">
-                    @if (!$comprobarLike)
+                    @if (!$postLike)
                         <a href="darLike" id="{{$post->id}}" class="likes"><i class="icono bi bi-heart fs-2 text-dark"></i></a><span class="ms-2">{{$like}}</span>
                     @else 
                         <a href="quitarLike" id="{{$post->id}}" class="likes"><i class="icono bi bi-heart-fill fs-2 text-dark"></i></a><span class="ms-2">{{$like}}</span>
