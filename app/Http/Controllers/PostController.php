@@ -71,7 +71,7 @@ class PostController extends Controller
     }
 
     function darLike($id){
-
+        /* sleep(1); */
         $like = new Like();
         $like->user_id = Auth::user()->id;
         $like->post_id = $id;
@@ -79,6 +79,7 @@ class PostController extends Controller
     }
 
     function quitarLike($id){
+        /* sleep(1); */
         Like::where("post_id", $id)->where("user_id", Auth::user()->id)->delete();
     }
 
