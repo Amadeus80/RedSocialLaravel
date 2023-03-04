@@ -4,14 +4,14 @@ import '../css/app.scss';
 /* Funcion de jquery para hacer una peticion ajax y dar like a algun post */
 $(function () {
     let elemento;
+    let x = $( document );
     $(".likes").click(function ( event ){
-        let x = $( document );
         elemento = $(this);
         event.preventDefault();
         x.ajaxStart(function(){
             elemento.html(`<div class="spinner-border text-dark" role="status">
             <span class="visually-hidden">Loading...</span>
-          </div>`);
+            </div>`);
         });
         $.get("http://127.0.0.1:8000/"+$(this).attr("href")+"/"+$(this).attr("id"), function (datos) {
             if (elemento.attr("href")=="darLike") {
