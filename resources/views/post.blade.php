@@ -4,19 +4,7 @@
 
 @section('content')
 
-<style>
-    .tituloPost{
-        text-overflow: ellipsis ;
-        white-space: nowrap;
-        overflow: hidden;
-    }
-
-    @media (min-width: 992px) {
-        .post{
-            width: 50% !important;
-        }
-    }
-</style>
+@vite(['resources/css/post.css'])
 
 <div class="container p-4 rounded d-flex flex-column justify-content-center">{{-- Div fondo --}}
     <div class="post container-fluid w-100 mx-auto mb-5">
@@ -109,27 +97,3 @@
 </div>
 
 @endsection
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-
-<script>
-
-    $(function () {
-        $(".likes").click(function ( event ){
-            event.preventDefault();
-            $.get("http://127.0.0.1:8000/"+$(this).attr("href")+"/"+$(this).attr("id"), function (datos) {
-
-            });
-            if ($(this).attr("href")=="darLike") {
-                $(this).next().html(parseInt($(this).next().html())+1);   
-                $(this).children().attr("class", "icono bi bi-heart-fill fs-2 text-dark");
-                $(this).attr("href", "quitarLike");
-            } else {
-                $(this).next().html(parseInt($(this).next().html())-1);  
-                $(this).children().attr("class", "icono bi bi-heart fs-2 text-dark");
-                $(this).attr("href", "darLike");
-            }
-        })
-    });
-
-</script>

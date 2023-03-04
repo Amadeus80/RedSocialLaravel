@@ -1,0 +1,14 @@
+body{
+    background-image: url("http://localhost:8000/img/background.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
+@media (max-width: 578px) {
+    body{
+        background-position: top left;
+    }
+}

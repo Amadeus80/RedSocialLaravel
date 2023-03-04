@@ -1,19 +1,4 @@
-<style>
-    .boton{
-        margin-left:-10px; 
-    }
-/* 
-    nav{
-        opacity: 0.9;
-    } */
-
-    .nombreUser{
-        text-overflow: ellipsis ;
-        white-space: nowrap;
-        width: 200px !important;
-        overflow: hidden;
-    }
-</style>
+@vite(['resources/css/nav.css'])
 <nav class="navbar sticky-top bg-body-tertiary bg-opacity-75">
     <div class="container-fluid">
         @auth

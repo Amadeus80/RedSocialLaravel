@@ -2,23 +2,9 @@
 
 @section("title", "Inicio")
 
-@section('content')    
+@section('content') 
 
-<style>
-
-    .tituloPost{
-        text-overflow: ellipsis ;
-        white-space: nowrap;
-        overflow: hidden;
-    }
-
-    @media (min-width: 992px) {
-        .post{
-            width: 50% !important;
-        }
-    }
-
-</style>
+@vite(['resources/css/post.css'])
 
 @php
     use App\models\Like;
