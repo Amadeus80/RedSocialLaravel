@@ -82,7 +82,7 @@
 
 {{-- MODAL BUSQUEDA --}}
 <div class="modal fade" id="modalBusqueda" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Busqueda</h1>
@@ -94,7 +94,6 @@
                     <span class="btn boton rounded-start-0 bg-dark border border-dark text-white"><i class="bi bi-search"></i></span>
                 </form>
                 <div class="usuarios p-4 d-flex flex-column gap-4" id="usuarios">
-
                 </div>
             </div>
         </div>
