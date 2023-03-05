@@ -17,9 +17,9 @@
             <div class="post container-fluid w-100 mx-auto mb-5"> {{-- Div Card --}}
                 <div class="bg-dark-subtle rounded-top">
                     <div class="d-flex align-items-center gap-3 ms-4">
-                        <a href="#"><img src="{{asset($post->user->profile->img)}}" alt="imagenUsuario" width="50px" height="50px" class="rounded-circle"></a>
+                        <a href="{{route('perfil', $post->user->id)}}"><img src="{{asset($post->user->profile->img)}}" alt="imagenUsuario" width="50px" height="50px" class="rounded-circle"></a>
                         <div class="mt-3 d-flex flex-column align-items-center justify-content-center">
-                            <a href="#" class="text-decoration-none text-dark"><h5>{{$post->user->name}}</h5></a>
+                            <a href="{{route('perfil', $post->user->id)}}" class="text-decoration-none text-dark"><h5>{{$post->user->name}}</h5></a>
                             <p>{{$post->created_at}}</p>
                         </div>
                     </div>

@@ -10,9 +10,9 @@
     <div class="post container-fluid w-100 mx-auto mb-5">
         <div class="bg-dark-subtle rounded-top">
             <div class="d-flex align-items-center gap-3 ms-4">
-                <img src="{{asset($post->user->profile->img)}}" alt="Imagen Usuario" width="50px" height="50px" class="rounded-circle">
+                <a href="{{route('perfil', $post->user->id)}}"><img src="{{asset($post->user->profile->img)}}" alt="Imagen Usuario" width="50px" height="50px" class="rounded-circle"></a>
                 <div class="mt-3 d-flex flex-column align-items-center justify-content-center">
-                    <h5>{{$post->user->name}}</h5>
+                    <a href="{{route('perfil', $post->user->id)}}" class="text-decoration-none text-dark"><h5>{{$post->user->name}}</h5></a>
                     <p>{{$post->created_at}}</p>
                 </div>
             </div>
@@ -36,7 +36,7 @@
                     @endif
                 </div>
                 <div class="text-center mx-2">
-                    <a href="#"><i class="icono bi bi-chat fs-2 text-dark"></i></a><span class="ms-2">{{count($post->comment)}}</span>
+                    <a><i class="icono bi bi-chat fs-2 text-dark"></i></a><span class="ms-2">{{count($post->comment)}}</span>
                 </div> 
             </div>
 
@@ -71,9 +71,9 @@
                 @foreach ($post->comment as $comment)
                     <div class="comment border-top border-dark p-3">
                         <div class="comment__info d-flex gap-2">
-                            <img src="{{asset($comment->user->profile->img)}}" alt="Imagen Comentario" width="50px" height="50px" class="rounded-circle">
+                            <a href="{{route('perfil', $comment->user->id)}}"><img src="{{asset($comment->user->profile->img)}}" alt="Imagen Comentario" width="50px" height="50px" class="rounded-circle"></a>
                             <div class="comment__text">
-                                <small>{{$comment->user->name}}</small>
+                                <a href="{{route('perfil', $comment->user->id)}}" class="text-decoration-none text-dark"><small>{{$comment->user->name}}</small></a>
                                 <small class="d-block">{{$comment->created_at}}</small>
                             </div>
                             @if (Auth::user()->id == $comment->user->id)

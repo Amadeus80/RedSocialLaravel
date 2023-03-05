@@ -21,7 +21,8 @@ class ProfileController extends Controller
                 $follow = true;
             }
         }
-        return view("perfil", compact("nombreUsuario", "perfil", "follow"));
+        $postsUsuario = $nombreUsuario->post;
+        return view("perfil", compact("nombreUsuario", "perfil", "follow", "postsUsuario"));
     }
 
     function postsPerfil($id){
@@ -42,7 +43,9 @@ class ProfileController extends Controller
         $siguiendoPerfil = Follow::where("user_id", $id)->get();
         $perfiles = [];
         foreach ($siguiendoPerfil as $sig) {
-            $perfiles[] = User::find($sig->user_follow_id)->profile;
+            $profile = User::find($sig->user_follow_id)->profile;
+            $profile["name"] = User::find($sig->user_follow_id)->name;
+            $perfiles[] = $profile;
         }
         return $perfiles;
     }

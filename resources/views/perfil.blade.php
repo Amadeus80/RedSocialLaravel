@@ -20,40 +20,19 @@
                 @endif
             @endif
         </div>
-        <div class="d-flex justify-content-around">
-            <a class="w-25 btn btn-outline-dark">Post</a>
-            <a class="w-25 btn btn-outline-dark">Tus me gusta</a>
-            <a class="w-25 btn btn-outline-dark">Siguiendo</a>
+        <div class="d-flex justify-content-around w-75 m-auto">
+            <a href="{{$nombreUsuario->id}}" class="btn btn-outline-dark active" id="recuperarPost">Post</a>
+            <a href="{{$nombreUsuario->id}}" class="btn btn-outline-dark" id="recuperarLikes">Tus me gusta</a>
+            <a href="{{$nombreUsuario->id}}" class="btn btn-outline-dark" id="recuperarSiguiendo">Siguiendo</a>
         </div>
         <div class="container text-center border-top border-dark pt-3">
-            <div class="row">
+            <div class="row" id="contenedorInfoPerfiles">
                 {{-- POST --}}
-                {{-- <div class="col-12 col-md-4 mb-3">
-                    <img src="{{asset("img/default_profile/default_avatar.png")}}" alt="" class="img-fluid rounded">
-                </div>
-                <div class="col-12 col-md-4 mb-3">
-                    <img src="{{asset("img/default_profile/default_avatar.png")}}" alt="" class="img-fluid rounded">
-                </div>
-                <div class="col-12 col-md-4 mb-3">
-                    <img src="{{asset("img/default_profile/default_avatar.png")}}" alt="" class="img-fluid rounded">
-                </div> --}}
-            
-                {{-- SIGUIENDO --}}
-                {{-- <div class="col-12 col-md-4 mb-3">
-                    <a href="#"><img src="{{asset("img/default_profile/default_avatar.png")}}" class="rounded-circle img-fluid" height="100" width="100"></a> <a href="#" class="text-decoration-none text-dark"><h3 class="mt-2">Pablo</h3></a>
-                </div>
-                <div class="col-12 col-md-4 mb-3">
-                    <a href="#"><img src="{{asset("img/default_profile/default_avatar.png")}}" class="rounded-circle img-fluid" height="100" width="100"></a> <a href="#" class="text-decoration-none text-dark"><h3 class="mt-2">Pablo</h3></a>
-                </div>
-                <div class="col-12 col-md-4 mb-3">
-                    <a href="#"><img src="{{asset("img/default_profile/default_avatar.png")}}" class="rounded-circle img-fluid" height="100" width="100"></a> <a href="#" class="text-decoration-none text-dark"><h3 class="mt-2">Pablo</h3></a>
-                </div>
-                <div class="col-12 col-md-4 mb-3">
-                    <a href="#"><img src="{{asset("img/default_profile/default_avatar.png")}}" class="rounded-circle img-fluid" height="100" width="100"></a> <a href="#" class="text-decoration-none text-dark"><h3 class="mt-2">Pablo</h3></a>
-                </div>
-                <div class="col-12 col-md-4 mb-3">
-                    <a href="#"><img src="{{asset("img/default_profile/default_avatar.png")}}" class="rounded-circle img-fluid" height="100" width="100"></a> <a href="#" class="text-decoration-none text-dark"><h3 class="mt-2">Pablo</h3></a>
-                </div> --}}
+                @foreach ($postsUsuario as $post)
+                    <div class="col-12 col-md-4 mb-3">
+                        <a href="{{route('post', $post->id)}}"><img src="{{asset($post->img)}}" alt="" class="img-fluid rounded h-100 w-100"></a>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
