@@ -36,7 +36,11 @@ $(function () {
                 let data = "";
                 if(usuarios.length != 0){
                     for (const usuario of usuarios) {
-                        data += `<div class="d-flex gap-3 align-items-center"><img src="http://localhost:8000/${usuario.img}" class="rounded-circle" width="50" height="50"> ${usuario.name}</div>`;
+                        let infoFollow = "No seguido";
+                        if(usuario.follow){
+                            infoFollow = "Seguido";
+                        }
+                        data += `<div class="d-flex gap-2 align-items-center"><a href="#"><img src="http://localhost:8000/${usuario.img}" class="rounded-circle" width="50" height="50"></a> <a href="#" class="text-decoration-none text-dark">${usuario.name} - ${infoFollow}</a></div>`;
                     }
                     
                 }
