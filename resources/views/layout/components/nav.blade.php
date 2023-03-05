@@ -34,7 +34,7 @@
     <div class="offcanvas-body">
         <div class="d-flex flex-column gap-3 align-items-center">
             <a href="{{route('inicio')}}" class="btn btn-outline-dark w-50 fs-5 {{request()->routeIs("inicio")?'active':''}}"><i class="bi bi-house-fill"></i> Inicio</a>
-            <a href="{{route('perfil')}}" class="btn btn-outline-dark w-50 fs-5 {{request()->routeIs("perfil")?'active':''}}"><i class="bi bi-person-square"></i> Perfil</a>
+            <a href="{{route('perfil', Auth::user()->id)}}" class="btn btn-outline-dark w-50 fs-5 {{request()->routeIs("perfil")?'active':''}}"><i class="bi bi-person-square"></i> Perfil</a>
             <a class="btn btn-outline-dark w-50 fs-5" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-camera-fill"></i> Nuevo post</a>
         </div>
     </div>

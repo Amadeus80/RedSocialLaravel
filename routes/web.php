@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -19,7 +20,13 @@ use App\Http\Controllers\UserController;
 Route::view("/", "portada")->name("portada");
 Route::view("login", "login")->name("login")->middleware("guest");
 Route::view("register", "register")->name("register")->middleware("guest");
-Route::view("perfil", "perfil")->name("perfil")->middleware("auth");
+
+Route::controller(ProfileController::class)->group(function(){
+    Route::get("perfil/{id}", "recuperarPerfil")->name("perfil")->middleware("auth");
+    Route::get("postPerfil/{id}", "postsPerfil")->name("postsPerfil")->middleware("auth");
+    Route::get("likesPerfil/{id}", "likesPerfil")->name("likesPerfil")->middleware("auth");
+    Route::get("siguiendoPerfil/{id}", "siguiendoPerfil")->name("siguiendoPerfil")->middleware("auth");
+});
 
 Route::controller(PostController::class)->group(function(){
     Route::get("inicio", "timeline")->name("inicio")->middleware("auth");
