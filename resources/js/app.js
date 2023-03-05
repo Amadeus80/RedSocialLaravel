@@ -1,7 +1,8 @@
 import './bootstrap';
 import '../css/app.scss';
-import { forEach } from 'lodash';
+import jQuery from 'jquery';
 
+window.$ = jQuery;
 
 $(function () {
     /* Hace una peticion ajax y dar like a algun post */
