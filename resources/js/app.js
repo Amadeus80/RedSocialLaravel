@@ -56,6 +56,9 @@ $(function () {
         }
     });
 
+    $("#formBusqueda").submit(function(event){
+        event.preventDefault();
+    });
 
     /* LLENAR INFO PERFILES */
 

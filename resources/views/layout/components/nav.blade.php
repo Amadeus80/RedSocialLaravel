@@ -89,7 +89,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form class="d-flex" role="search">
+                <form class="d-flex" role="search" id="formBusqueda">
                     <input class="form-control me-2 rounded-end-0" type="search" placeholder="Buscar..." aria-label="Search" id="campoBusqueda">
                     <span class="btn boton rounded-start-0 bg-dark border border-dark text-white"><i class="bi bi-search"></i></span>
                 </form>
