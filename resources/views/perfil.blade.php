@@ -28,11 +28,15 @@
         <div class="container text-center border-top border-dark pt-3">
             <div class="row" id="contenedorInfoPerfiles">
                 {{-- POST --}}
-                @foreach ($postsUsuario as $post)
-                    <div class="col-12 col-md-4 mb-3">
-                        <a href="{{route('post', $post->id)}}"><img src="{{asset($post->img)}}" alt="" class="img-fluid rounded h-100 w-100"></a>
-                    </div>
-                @endforeach
+                @if(count($postsUsuario) > 0)
+                    @foreach ($postsUsuario as $post)
+                        <div class="col-12 col-md-4 mb-3">
+                            <a href="{{route('post', $post->id)}}"><img src="{{asset($post->img)}}" alt="" class="img-fluid rounded h-100 w-100"></a>
+                        </div>
+                    @endforeach
+                @else
+                    <h2 class="p-3">No hay posts</h2>
+                @endif
             </div>
         </div>
     </div>
