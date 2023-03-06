@@ -149,6 +149,26 @@ $(function () {
         })
     });
 
+    /* OPCIONES FOLLOW */
+
+    /* Dar Follow */
+    $("#follow").click(function (event) {
+        event.preventDefault(); 
+
+        $.get(`http://127.0.0.1:8000/follow/${$(this).attr("href")}`, function(datos){
+            $("#botonFollow").html(`<a href="${$(this).attr("href")}" class="btn btn-outline-danger" id="unfollow"><i class="bi bi-person-dash-fill"></i> Unfollow</a>`);
+        })
+    })
+
+    /* Dar Follow */
+    $("#unfollow").click(function (event) {
+        event.preventDefault(); 
+
+        $.get(`http://127.0.0.1:8000/unfollow/${$(this).attr("href")}`, function(datos){
+            $("#botonFollow").html(`<a href="${$(this).attr("href")}" class="btn btn-outline-success" id="follow"><i class="bi bi-person-plus-fill"></i> Follow</a>`);
+        })
+    })
+
 });
 
 /* TOOLTIP */
