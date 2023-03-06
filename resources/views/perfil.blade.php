@@ -24,7 +24,7 @@
         </div>
         <div class="d-flex justify-content-around w-75 m-auto">
             <a href="{{$nombreUsuario->id}}" class="btn btn-outline-dark active" id="recuperarPost">Post</a>
-            <a href="{{$nombreUsuario->id}}" class="btn btn-outline-dark" id="recuperarLikes">Tus me gusta</a>
+            <a href="{{$nombreUsuario->id}}" class="btn btn-outline-dark" id="recuperarLikes">Me gustas</a>
             <a href="{{$nombreUsuario->id}}" class="btn btn-outline-dark" id="recuperarSiguiendo">Siguiendo</a>
         </div>
         <div class="container text-center border-top border-dark pt-3">

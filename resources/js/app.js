@@ -152,22 +152,28 @@ $(function () {
     /* OPCIONES FOLLOW */
 
     /* Dar Follow */
-    $("#follow").click(function (event) {
+    function follow (event) {
         event.preventDefault(); 
+        let id = $(this).attr("href");
 
         $.get(`http://127.0.0.1:8000/follow/${$(this).attr("href")}`, function(datos){
-            $("#botonFollow").html(`<a href="${$(this).attr("href")}" class="btn btn-outline-danger" id="unfollow"><i class="bi bi-person-dash-fill"></i> Unfollow</a>`);
+            $("#botonFollow").html(`<a href="${id}" class="btn btn-outline-danger" id="unfollow"><i class="bi bi-person-dash-fill"></i> Unfollow</a>`);
+            $("#unfollow").click(unfollow);
         })
-    })
+    }
+    $("#follow").click(follow);
 
     /* Dar Follow */
-    $("#unfollow").click(function (event) {
-        event.preventDefault(); 
+    function unfollow (event) {
+        event.preventDefault();
+        let id = $(this).attr("href");
 
         $.get(`http://127.0.0.1:8000/unfollow/${$(this).attr("href")}`, function(datos){
-            $("#botonFollow").html(`<a href="${$(this).attr("href")}" class="btn btn-outline-success" id="follow"><i class="bi bi-person-plus-fill"></i> Follow</a>`);
+            $("#botonFollow").html(`<a href="${id}" class="btn btn-outline-success" id="follow"><i class="bi bi-person-plus-fill"></i> Follow</a>`);
+            $("#follow").click(follow);
         })
-    })
+    }
+    $("#unfollow").click(unfollow);
 
 });
 
