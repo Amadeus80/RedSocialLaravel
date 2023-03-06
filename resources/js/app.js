@@ -114,7 +114,7 @@ $(function () {
                 }
             }
             else{
-                data = "<h2 class='p-3'>No has dado ningún like</h2>";
+                data = "<h2 class='p-3'>No hay ningún like</h2>";
             }
             $("#contenedorInfoPerfiles").html(data);
         })
@@ -143,7 +143,7 @@ $(function () {
                 }
             }
             else{
-                data = "<h2 class='p-3'>No sigues a nadie</h2>";
+                data = "<h2 class='p-3'>No sigue a nadie</h2>";
             }
             $("#contenedorInfoPerfiles").html(data);
         })

@@ -26,6 +26,8 @@ Route::controller(ProfileController::class)->group(function(){
     Route::get("postPerfil/{id}", "postsPerfil")->name("postsPerfil")->middleware("auth");
     Route::get("likesPerfil/{id}", "likesPerfil")->name("likesPerfil")->middleware("auth");
     Route::get("siguiendoPerfil/{id}", "siguiendoPerfil")->name("siguiendoPerfil")->middleware("auth");
+    Route::get("follow/{id}", "darFollow")->name("follow")->middleware("auth");
+    Route::get("unfollow/{id}", "quitarFollow")->name("unfollow")->middleware("auth");
 });
 
 Route::controller(PostController::class)->group(function(){

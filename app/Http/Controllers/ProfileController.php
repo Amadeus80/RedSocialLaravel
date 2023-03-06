@@ -50,4 +50,15 @@ class ProfileController extends Controller
         return $perfiles;
     }
 
+    function darFollow($id){
+        $seguirFollow = new Follow();
+        $seguirFollow->user_id = Auth::user()->id;
+        $seguirFollow->user_follow_id = $id;
+        $seguirFollow->save();
+    }
+
+    function quitarFollow($id){
+        Follow::where("user_id", Auth::user()->id)->where("user_follow_id", $id)->delete();
+    }
+
 }

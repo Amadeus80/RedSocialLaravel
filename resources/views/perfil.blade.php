@@ -14,9 +14,9 @@
                 <a href="#" class="btn btn-outline-dark" data-bs-toggle="tooltip" data-bs-title="Cambiar imagen de perfil"><i class="bi bi-image"></i></a>
             @else
                 @if ($follow)
-                    <a href="#" class="btn btn-outline-danger">Unfollow</a>
+                    <a href="{{$nombreUsuario->id}}" class="btn btn-outline-danger"><i class="bi bi-person-dash-fill"></i> Unfollow</a>
                 @else
-                    <a href="#" class="btn btn-outline-success">Follow</a>
+                    <a href="{{$nombreUsuario->id}}" class="btn btn-outline-success"><i class="bi bi-person-plus-fill"></i> Follow</a>
                 @endif
             @endif
         </div>
@@ -31,7 +31,7 @@
                 @if(count($postsUsuario) > 0)
                     @foreach ($postsUsuario as $post)
                         <div class="col-12 col-md-4 mb-3">
-                            <a href="{{route('post', $post->id)}}"><img src="{{asset($post->img)}}" alt="" class="img-fluid rounded h-100 w-100"></a>
+                            <a href="{{route('post', $post->id)}}"><img src="{{asset($post->img)}}" alt="" class="img-fluid rounded w-100 h-100"></a>
                         </div>
                     @endforeach
                 @else
