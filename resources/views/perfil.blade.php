@@ -13,11 +13,13 @@
             @if (Auth::user()->id == $nombreUsuario->id)
                 <a href="#" class="btn btn-outline-dark" data-bs-toggle="tooltip" data-bs-title="Cambiar imagen de perfil"><i class="bi bi-image"></i></a>
             @else
+                <div id="botonFollow">
                 @if ($follow)
                     <a href="{{$nombreUsuario->id}}" class="btn btn-outline-danger" id="unfollow"><i class="bi bi-person-dash-fill"></i> Unfollow</a>
                 @else
                     <a href="{{$nombreUsuario->id}}" class="btn btn-outline-success" id="follow"><i class="bi bi-person-plus-fill"></i> Follow</a>
                 @endif
+                </div>
             @endif
         </div>
         <div class="d-flex justify-content-around w-75 m-auto">
