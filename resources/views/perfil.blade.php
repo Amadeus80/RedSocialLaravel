@@ -4,6 +4,12 @@
 
 @section('content')
 @vite(['resources/css/perfil.css'])
+    @if (session('imagenCambiada'))
+    <div class="alert container alert-success mt-3">
+        {{ session('imagenCambiada') }}
+    </div>
+    @endif
+
     <div class="container bg-dark-subtle p-4 rounded contenedorPerfil d-flex flex-column gap-4">
         <div class="w-75 m-auto d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center gap-4">
@@ -11,7 +17,7 @@
                 <h2>{{$nombreUsuario->name}}</h2>
             </div>
             @if (Auth::user()->id == $nombreUsuario->id)
-                <a href="#" class="btn btn-outline-dark" data-bs-toggle="tooltip" data-bs-title="Cambiar imagen de perfil"><i class="bi bi-image"></i></a>
+                <a href="#" class="btn btn-outline-dark" data-bs-target="#modalCambio" data-bs-toggle="modal"><i class="bi bi-image"></i></a>
             @else
                 <div id="botonFollow">
                 @if ($follow)
@@ -39,6 +45,34 @@
                 @else
                     <h2 class="p-3">No hay posts</h2>
                 @endif
+            </div>
+        </div>
+    </div>
+
+
+
+    {{-- MODAL CAMBIAR IMAGEN --}}
+    <div class="modal fade" id="modalCambio" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Cambiar imagen</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="{{route('cambiarImagen')}}" class="needs-validation" novalidate method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method("PUT")
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="file" class="form-label">Seleccionar imagen...</label>
+                            <input class="form-control" name="file" type="file" id="file" required>
+                            <div class="invalid-feedback"><i class="bi bi-exclamation-octagon-fill"></i> Debes insertar una imagen</div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-primary" value="Publicar post"></input>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

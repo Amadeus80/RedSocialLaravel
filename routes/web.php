@@ -28,6 +28,7 @@ Route::controller(ProfileController::class)->group(function(){
     Route::get("siguiendoPerfil/{id}", "siguiendoPerfil")->name("siguiendoPerfil")->middleware("auth");
     Route::get("follow/{id}", "darFollow")->name("follow")->middleware("auth");
     Route::get("unfollow/{id}", "quitarFollow")->name("unfollow")->middleware("auth");
+    Route::put("cambiarImagen", "cambiarImagen")->name("cambiarImagen")->middleware("auth");
 });
 
 Route::controller(PostController::class)->group(function(){

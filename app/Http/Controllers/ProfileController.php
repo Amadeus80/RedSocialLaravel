@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Follow;
 use App\Models\Like;
 use App\Models\Post;
+use App\Models\Profile;
 use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
@@ -59,6 +60,23 @@ class ProfileController extends Controller
 
     function quitarFollow($id){
         Follow::where("user_id", Auth::user()->id)->where("user_follow_id", $id)->delete();
+    }
+
+    function cambiarImagen(Request $request){
+        $request->validate([
+            'file' => 'image|max:5120',
+        ]);
+
+        $perfil = Profile::where("user_id", Auth::user()->id)->first();
+
+        $ruta = public_path("img/profile/");
+        $imagen = $request->file('file');
+        $nombreImagen = $imagen->hashName();
+        $imagen->move($ruta, $nombreImagen);
+        $perfil->img = "img/profile/".$nombreImagen;
+
+        $perfil->save();
+        return to_route('perfil', ['id' => Auth::user()->id])->with("imagenCambiada", "La imagen se ha cambiado correctamente");
     }
 
 }
