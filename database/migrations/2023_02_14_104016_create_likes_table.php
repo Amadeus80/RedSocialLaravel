@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('likes', function (Blueprint $table) {
-            $table->foreignId("user_id")->constrained("users");
-            $table->foreignId("post_id")->constrained("posts");
+            $table->foreignId("user_id")->constrained("users")->onDelete("cascade")->onUpdate("cascade");
+            $table->foreignId("post_id")->constrained("posts")->onDelete("cascade")->onUpdate("cascade");
             $table->primary(["user_id", "post_id"]);
             $table->timestamps();
         });
