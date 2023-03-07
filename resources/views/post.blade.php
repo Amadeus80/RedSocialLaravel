@@ -56,7 +56,7 @@
                     <div class="w-100">
                         <form action="{{route('comentario')}}" class="d-flex justify-content align-items-center gap-3" method="post">
                             @csrf
-                            <textarea type="text" name="comentario" id="comentario" style="resize: none" maxlength="500" class="d-block form-control" placeholder="Realizar comentario..."></textarea>
+                            <textarea type="text" name="comentario" id="comentario" style="resize: none" maxlength="500" class="d-block form-control" placeholder="Realizar comentario..." required></textarea>
                             <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
                             <input type="hidden" name="post_id" value="{{$post->id}}">
                             <input type="submit" value="Comentar" class="btn btn-outline-success">
