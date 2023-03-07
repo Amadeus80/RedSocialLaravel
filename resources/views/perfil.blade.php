@@ -29,9 +29,9 @@
             @endif
         </div>
         <div class="d-flex justify-content-around w-75 m-auto">
-            <a href="{{$nombreUsuario->id}}" class="btn btn-outline-dark active" id="recuperarPost">Post</a>
-            <a href="{{$nombreUsuario->id}}" class="btn btn-outline-dark" id="recuperarLikes">Me gustas</a>
-            <a href="{{$nombreUsuario->id}}" class="btn btn-outline-dark" id="recuperarSiguiendo">Siguiendo</a>
+            <a href="{{$nombreUsuario->id}}" class="btn btn-outline-dark active fs-3" id="recuperarPost" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Post"><i class="bi bi-camera"> </i></a>
+            <a href="{{$nombreUsuario->id}}" class="btn btn-outline-dark fs-3" id="recuperarLikes" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Me gustas"><i class="bi bi-suit-heart"></i> </a>
+            <a href="{{$nombreUsuario->id}}" class="btn btn-outline-dark fs-3" id="recuperarSiguiendo" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Siguiendo"><i class="bi bi-person-vcard"></i> </a>
         </div>
         <div class="container text-center border-top border-dark pt-3">
             <div class="row" id="contenedorInfoPerfiles">
