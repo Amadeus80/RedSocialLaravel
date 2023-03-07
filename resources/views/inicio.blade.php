@@ -10,6 +10,12 @@
     use App\models\Like;
 @endphp
 
+@if (session('postBorrado'))
+    <div class="alert container alert-success mt-3">
+        {{ session('postBorrado') }}
+    </div>
+@endif
+
 <div class="container p-4 rounded d-flex flex-column justify-content-center">{{-- Div fondo --}}
     @if (count($posts) > 0)
         <h1 class="text-center text-white pb-5">Timeline</h1>    

@@ -39,6 +39,7 @@ Route::controller(PostController::class)->group(function(){
     Route::post("publicarPost", "publicarPost")->name("publicarPost")->middleware("auth");
     Route::get("darLike/{id}", "darLike")->name("darLike")->middleware("auth");
     Route::get("quitarLike/{id}", "quitarLike")->name("quitarLike")->middleware("auth");
+    Route::delete("borrarPost", "borrarPost")->name("borrarPost")->middleware("auth");
 });
 
 Route::controller(UserController::class)->group(function(){

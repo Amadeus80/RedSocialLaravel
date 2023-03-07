@@ -15,6 +15,14 @@
                     <a href="{{route('perfil', $post->user->id)}}" class="text-decoration-none text-dark"><h5>{{$post->user->name}}</h5></a>
                     <p>{{$post->created_at}}</p>
                 </div>
+                @if (Auth::user()->id == $post->user_id)
+                    <form action="{{route('borrarPost')}}" method="POST">
+                        @csrf
+                        @method("DELETE")
+                        <input type="hidden" value="{{$post->id}}" name="id">
+                        <input type="submit" value="Borrar post" class="btn btn-outline-danger">
+                    </form>
+                @endif
             </div>
         </div>
     

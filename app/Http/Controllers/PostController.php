@@ -70,6 +70,12 @@ class PostController extends Controller
         return back()->with("postPublicado", "El post se ha publicado correctamente");
     }
 
+    function borrarPost(Request $request){
+        $post = Post::find($request->id);
+        $post->delete();
+        return redirect('inicio')->with("postBorrado", "Post borrado");
+    }
+
     function darLike($id){
         /* sleep(1); */
         $like = new Like();
