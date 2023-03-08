@@ -22,13 +22,13 @@ class ProfileController extends Controller
                 $follow = true;
             }
         }
-        $postsUsuario = $nombreUsuario->post;
+        $postsUsuario = $nombreUsuario->post->sortByDesc("created_at");
         return view("perfil", compact("nombreUsuario", "perfil", "follow", "postsUsuario"));
     }
 
     function postsPerfil($id){
         $nombreUsuario = User::find($id);
-        return $nombreUsuario->post;
+        return $nombreUsuario->post->sortByDesc("created_at");
     }
 
     function likesPerfil($id){
