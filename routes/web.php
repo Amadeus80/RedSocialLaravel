@@ -17,10 +17,12 @@ use App\Http\Controllers\UserController;
 |
 */
 
+/* Muestra las vistas estaticas que no necesitan controladores */
 Route::view("/", "portada")->name("portada");
 Route::view("login", "login")->name("login")->middleware("guest");
 Route::view("register", "register")->name("register")->middleware("guest");
 
+/* Rutas que gestiona el controlador de perfiles */
 Route::controller(ProfileController::class)->group(function(){
     Route::get("perfil/{id}", "recuperarPerfil")->name("perfil")->middleware("auth");
     Route::get("postPerfil/{id}", "postsPerfil")->name("postsPerfil")->middleware("auth");
@@ -31,6 +33,7 @@ Route::controller(ProfileController::class)->group(function(){
     Route::put("cambiarImagen", "cambiarImagen")->name("cambiarImagen")->middleware("auth");
 });
 
+/* Rutas que gestiona el controlador de posts */
 Route::controller(PostController::class)->group(function(){
     Route::get("inicio", "timeline")->name("inicio")->middleware("auth");
     Route::get("post/{id}", "mostrarPost")->name("post")->middleware("auth");
@@ -42,11 +45,13 @@ Route::controller(PostController::class)->group(function(){
     Route::delete("borrarPost", "borrarPost")->name("borrarPost")->middleware("auth");
 });
 
+
+/* Rutas que gestiona el controlador de busqueda de usuarios */
 Route::controller(UserController::class)->group(function(){
     Route::get("user/{nombre}", "usersByWord")->name("users")->middleware("auth");
 });
 
-
+/* Rutas que gestiona el controlador de autenticación */
 Route::controller(AuthController::class)->group(function(){
     Route::post("login", "login")->name("login.log")->middleware("guest");
     Route::post("register", "register")->name("register.log")->middleware("guest");
