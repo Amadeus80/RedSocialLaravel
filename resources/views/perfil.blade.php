@@ -69,7 +69,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <input type="submit" class="btn btn-primary" value="Publicar post"></input>
+                        <input type="submit" class="btn btn-primary" value="Cambiar imagen"></input>
                     </div>
                 </form>
             </div>
