@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
-    
+    /* Recuperar datos del perfil */
     function recuperarPerfil($id){
         $follow = false;
         $nombreUsuario = User::find($id);
@@ -26,11 +26,13 @@ class ProfileController extends Controller
         return view("perfil", compact("nombreUsuario", "perfil", "follow", "postsUsuario"));
     }
 
+    /* Recuperar los posts realizados por el perfil */
     function postsPerfil($id){
         $nombreUsuario = User::find($id);
         return $nombreUsuario->post->sortByDesc("created_at");
     }
 
+    /* Recuperar Likes que ha dado el perfil */
     function likesPerfil($id){
         $likesPerfil = Like::where("user_id", $id)->get();
         $postLikes = [];
@@ -40,6 +42,7 @@ class ProfileController extends Controller
         return $postLikes;
     }
 
+    /* Recuperar a que perfiles sigue el perfil */
     function siguiendoPerfil($id){
         $siguiendoPerfil = Follow::where("user_id", $id)->get();
         $perfiles = [];
@@ -51,6 +54,7 @@ class ProfileController extends Controller
         return $perfiles;
     }
 
+    /* Dar follow a un perfil */
     function darFollow($id){
         $seguirFollow = new Follow();
         $seguirFollow->user_id = Auth::user()->id;
@@ -58,10 +62,12 @@ class ProfileController extends Controller
         $seguirFollow->save();
     }
 
+    /* Quitar follow al perfil */
     function quitarFollow($id){
         Follow::where("user_id", Auth::user()->id)->where("user_follow_id", $id)->delete();
     }
 
+    /* Cambiar imagen del perfils */
     function cambiarImagen(Request $request){
         $request->validate([
             'file' => 'image|max:5120',

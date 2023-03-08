@@ -9,6 +9,7 @@ use App\models\Profile;
 
 class AuthController extends Controller
 {
+    /* Iniciar Sesion */
     public function login(Request $request){
         $credentials = $request->only("email", "password");
         $remember = $request->remember?true:false;
@@ -22,6 +23,7 @@ class AuthController extends Controller
         }
     }
 
+    /* Cerrar Sesion */
     public function logout(Request $request){
         Auth::logout();
         $request->session()->invalidate();
@@ -29,6 +31,7 @@ class AuthController extends Controller
         return redirect("login");
     }
 
+    /* Registrarse */
     public function register(Request $request){
         if(count(User::where("email", $request->email)->get()) == 0){
             if(count(User::where("name", $request->name)->get()) == 0){

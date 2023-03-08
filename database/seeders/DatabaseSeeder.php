@@ -23,12 +23,6 @@ class DatabaseSeeder extends Seeder
         Post::factory(10)->create();
         Profile::factory(10)->create();
         Comment::factory(10)->create();
-        /* Follow::factory(10)->create(); */
-
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        
     }
 }

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    /* Busqueda de usuario por palabras */
     function usersByWord($nombre){
         $usuarios = User::where("name", "like", "%$nombre%")->get();
         $listado = [];
