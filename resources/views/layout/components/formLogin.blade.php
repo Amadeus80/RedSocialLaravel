@@ -1,6 +1,6 @@
 <div class="container-md">
     <div class="row d-flex justify-content-center">
-        <div class="col-md-6 p-5">
+        <div class="col-md-6 p-5 bg-dark p-4 rounded bg-opacity-75">
         <!-- Formulario -->
             <form action="{{route("login.log")}}" class="needs-validation" novalidate method="POST">
                 @csrf
@@ -10,16 +10,16 @@
                 <div class="mb-3 form-floating position-relative">
                     <input type="email" name="email" id="input-email" class="form-control" placeholder=" " required />
                     <label for="input-email" class="form-label">Correo electrónico</label>
-                    <div class="valid-feedback"><i class="bi bi-check-lg"></i> Válido</div>
-                    <div class="invalid-feedback"><i class="bi bi-exclamation-octagon-fill"></i> Email no válido</div>
+                    <div class="valid-feedback fs-5"><i class="bi bi-check-lg"></i> Válido</div>
+                    <div class="invalid-feedback fs-5"><i class="bi bi-exclamation-octagon-fill"></i> Email no válido</div>
                 </div>
 
                 {{-- Campo contraseña --}}
                 <div class="mb-3 form-floating position-relative">
                     <input type="password" name="password" id="input-password" class="form-control" placeholder=" " required minlength="8"/>
                     <label for="input-password" class="form-label">Contraseña</label>
-                    <div class="valid-feedback"><i class="bi bi-check-lg"></i> Válido </div>
-                    <div class="invalid-feedback"><i class="bi bi-exclamation-octagon-fill"></i> Contraseña no válida (Requerida y mínimo 8 caracteres)</div>
+                    <div class="valid-feedback fs-5"><i class="bi bi-check-lg"></i> Válido </div>
+                    <div class="invalid-feedback fs-5"><i class="bi bi-exclamation-octagon-fill"></i> Contraseña no válida (Requerida y mínimo 8 caracteres)</div>
                 </div>
 
                 {{-- Campo recuerdame --}}
