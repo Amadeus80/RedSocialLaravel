@@ -101,8 +101,8 @@ $(function () {
                 let data = "";
                 if(datos.length > 0){
                     for (const dato of datos) {
-                        data += `<div class="col-12 col-md-4 mb-3">
-                            <a href="http://127.0.0.1:8000/post/${dato.id}"><img src="http://localhost:8000/${dato.img}" alt="" class="img-fluid rounded h-100 w-100"></a>
+                        data += `<div class="col-12 col-md-4 mb-3" style="height: 250px;">
+                            <a href="http://127.0.0.1:8000/post/${dato.id}"><img src="http://localhost:8000/${dato.img}" alt="" class="img-fluid rounded h-100 w-100" style="object-fit: cover;"></a>
                             </div>`
                     }
                 }

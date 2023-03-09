@@ -38,8 +38,8 @@
                 {{-- POST --}}
                 @if(count($postsUsuario) > 0)
                     @foreach ($postsUsuario as $post)
-                        <div class="col-12 col-md-4 mb-3">
-                            <a href="{{route('post', $post->id)}}"><img src="{{asset($post->img)}}" alt="" class="img-fluid rounded w-100 h-100"></a>
+                        <div class="col-12 col-md-4 mb-3" style="height: 250px;">
+                            <a href="{{route('post', $post->id)}}"><img src="{{asset($post->img)}}" alt="" class="img-fluid rounded w-100 h-100" style="object-fit: cover;"></a>
                         </div>
                     @endforeach
                 @else
