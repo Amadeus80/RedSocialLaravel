@@ -7,9 +7,9 @@
         @endauth
 
         @auth
-            <a href="{{route('inicio')}}" class="text-decoration-none text-dark m-auto"><h2 class=""><img src="https://img.freepik.com/iconos-gratis/camara-fotografica_318-830527.jpg" alt="logo camara" width="75" height="75"></h2></a>
+            <a href="{{route('inicio')}}" class="text-decoration-none text-dark m-auto"><h2 class=""><img src="{{asset('img/logo.avif')}}" alt="logo camara" width="75" height="75"></h2></a>
         @else
-            <a href="{{route('portada')}}" class="text-decoration-none text-dark m-auto"><h2 class=""><img src="https://img.freepik.com/iconos-gratis/camara-fotografica_318-830527.jpg" alt="logo camara" width="75" height="75"></h2></a>
+            <a href="{{route('portada')}}" class="text-decoration-none text-dark m-auto"><h2 class=""><img src="{{asset('img/logo.avif')}}" alt="logo camara" width="75" height="75"></h2></a>
         @endauth
         @guest
             <a href="{{route("login")}}" class="btn btn-outline-dark">Login</a>
@@ -71,7 +71,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <input type="submit" class="btn btn-primary" value="Publicar post"></input>
+                    <input type="submit" class="btn btn-primary" value="Publicar post">
                 </div>
             </form>
         </div>
