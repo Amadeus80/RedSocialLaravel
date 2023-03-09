@@ -59,20 +59,38 @@
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Cambiar imagen</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="{{route('cambiarImagen')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('cambiarImagen')}}" class="needs-validation" novalidate method="POST" enctype="multipart/form-data">
                     @csrf
                     @method("PUT")
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="file" class="form-label">Seleccionar imagen...</label>
                             <input class="form-control" name="file" type="file" id="file" required>
+                            <div class="invalid-feedback"><i class="bi bi-exclamation-octagon-fill"></i> Debes insertar una imagen</div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <input type="submit" class="btn btn-primary" value="Cambiar imagen"></input>
+                        <input type="submit" class="btn btn-primary" value="Cambiar imagen">
                     </div>
                 </form>
             </div>
         </div>
     </div>
+
+    <script>
+        (() => {
+        'use strict'
+        const forms = document.querySelectorAll('.needs-validation')
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+                form.classList.add('was-validated')
+            }, false)
+        })
+    })()
+    </script>
+
 @endsection
