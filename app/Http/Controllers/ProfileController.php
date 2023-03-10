@@ -28,8 +28,7 @@ class ProfileController extends Controller
 
     /* Recuperar los posts realizados por el perfil */
     function postsPerfil($id){
-        $nombreUsuario = User::find($id);
-        return $nombreUsuario->post->sortByDesc("created_at");
+        return Post::where("user_id", $id)->orderBy("created_at", "DESC")->get();
     }
 
     /* Recuperar Likes que ha dado el perfil */
