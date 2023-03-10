@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use App\models\User;
-use App\models\Profile;
+use App\Models\User;
+use App\Models\Profile;
 
 class AuthController extends Controller
 {
