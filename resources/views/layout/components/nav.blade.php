@@ -1,6 +1,6 @@
 @vite(['resources/css/nav.css'])
 {{-- BARRA DE NAVEGACiÓN --}}
-<nav class="navbar sticky-top bg-body-tertiary bg-opacity-75">
+<nav class="navbar sticky-top bg-light bg-opacity-75">
     <div class="container-fluid">
         @auth
         <a class="navbar-brand fs-2" data-bs-toggle="offcanvas" href="#offcanvasExample"><img src="{{asset(Auth::user()->profile->img)}}" alt="foto de perfil" class="rounded-circle" width="50" height="50"></a>
@@ -17,8 +17,8 @@
         @endguest
         @auth    
         <form class="d-flex" role="search">
-            <input class="form-control me-2 rounded-end-0" type="search" placeholder="Buscar..." aria-label="Search" data-bs-toggle="modal" data-bs-target="#modalBusqueda">
-            <span class="btn boton rounded-start-0 bg-dark border border-dark text-white" data-bs-toggle="modal" data-bs-target="#modalBusqueda"><i class="bi bi-search"></i></span>
+            <input class="form-control me-2 inputSearch" type="search" placeholder="Buscar..." aria-label="Search" data-bs-toggle="modal" data-bs-target="#modalBusqueda">
+            <span class="btn boton bg-dark border border-dark text-white botonSearch" data-bs-toggle="modal" data-bs-target="#modalBusqueda"><i class="bi bi-search"></i></span>
         </form>
       @endauth
     </div>
@@ -90,8 +90,8 @@
             </div>
             <div class="modal-body">
                 <form class="d-flex" role="search" id="formBusqueda">
-                    <input class="form-control me-2 rounded-end-0" type="search" placeholder="Buscar..." aria-label="Search" id="campoBusqueda">
-                    <span class="btn boton rounded-start-0 bg-dark border border-dark text-white"><i class="bi bi-search"></i></span>
+                    <input class="form-control me-2 inputSearch" type="search" placeholder="Buscar..." aria-label="Search" id="campoBusqueda">
+                    <span class="btn boton bg-dark border border-dark text-white botonSearch"><i class="bi bi-search"></i></span>
                 </form>
                 <div class="usuarios p-4 d-flex flex-column gap-4" id="usuarios">
                 </div>

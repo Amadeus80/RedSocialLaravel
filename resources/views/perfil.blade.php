@@ -10,7 +10,7 @@
     </div>
     @endif
 
-    <div class="container bg-dark-subtle p-4 rounded contenedorPerfil d-flex flex-column gap-4">
+    <div class="container bg-secondary p-4 rounded contenedorPerfil d-flex flex-column gap-4">
         <div class="w-75 m-auto d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center gap-4">
                 <img src="{{asset($perfil->img)}}" alt="imagen perfil" width="100px" height="100px" class="rounded-circle">

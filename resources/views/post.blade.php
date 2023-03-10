@@ -8,7 +8,7 @@
 
 <div class="container p-4 rounded d-flex flex-column justify-content-center">{{-- Div fondo --}}
     <div class="post container-fluid w-100 mx-auto mb-5">
-        <div class="bg-dark-subtle rounded-top">
+        <div class="bg-secondary rounded-top">
             <div class="d-flex align-items-center gap-3 ms-4">
                 <a href="{{route('perfil', $post->user->id)}}"><img src="{{asset($post->user->profile->img)}}" alt="Imagen Usuario" width="50px" height="50px" class="rounded-circle"></a>
                 <div class="mt-3 d-flex flex-column align-items-center justify-content-center">
@@ -30,11 +30,11 @@
             <img src="{{asset($post->img)}}" alt="Imagen Post" class="img-fluid w-100">
         </div>
     
-        <div class="bg-dark-subtle m-auto p-2 d-flex align-items-center">
+        <div class="bg-secondary m-auto p-2 d-flex align-items-center">
             <h4 class="tituloPost m-auto p-1">{{$post->titulo}}</h4>
         </div>
 
-        <div class="bg-dark-subtle rounded-bottom p-3">
+        <div class="bg-secondary rounded-bottom p-3">
             <div class="interacciones d-flex justify-content-center">
                 <div class="text-center mx-2">
                     @if (!$postLike)
