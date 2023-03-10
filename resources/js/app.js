@@ -103,7 +103,7 @@ $(function () {
                 if(datos.length > 0){
                     for (const dato of datos) {
                         data += `<div class="col-12 col-md-4 mb-3 cuadroPerfil">
-                            <a href="http://sleepy-harbor-98328.herokuapp.com/post/${dato.id}"><img src="http://localhost:8000/${dato.img}" alt="" class="img-fluid rounded h-100 w-100" style="object-fit: cover;"></a>
+                            <a href="http://sleepy-harbor-98328.herokuapp.com/post/${dato.id}"><img src="http://sleepy-harbor-98328.herokuapp.com/${dato.img}" alt="" class="img-fluid rounded h-100 w-100" style="object-fit: cover;"></a>
                             </div>`
                     }
                 }
@@ -136,7 +136,7 @@ $(function () {
                 if(datos.length > 0){
                     for (const dato of datos) {
                         data += `<div class="col-12 col-md-4 mb-3 cuadroPerfil">
-                            <a href="http://sleepy-harbor-98328.herokuapp.com/post/${dato.id}"><img src="http://localhost:8000/${dato.img}" alt="" class="img-fluid rounded h-100 w-100"></a>
+                            <a href="http://sleepy-harbor-98328.herokuapp.com/post/${dato.id}"><img src="http://sleepy-harbor-98328.herokuapp.com/${dato.img}" alt="" class="img-fluid rounded h-100 w-100"></a>
                             </div>`
                     }
                 }
@@ -171,7 +171,7 @@ $(function () {
                 if(datos.length > 0){
                     for (const dato of datos) {
                         data += `<div class="col-12 col-md-4 mb-3">
-                            <a href="http://sleepy-harbor-98328.herokuapp.com/perfil/${dato.user_id}"><img src="http://localhost:8000/${dato.img}" class="rounded-circle" height="100" width="100"></a> <a href="#" class="text-decoration-none text-dark"><h3 class="mt-2">${dato.name}</h3></a>
+                            <a href="http://sleepy-harbor-98328.herokuapp.com/perfil/${dato.user_id}"><img src="http://sleepy-harbor-98328.herokuapp.com/${dato.img}" class="rounded-circle" height="100" width="100"></a> <a href="#" class="text-decoration-none text-dark"><h3 class="mt-2">${dato.name}</h3></a>
                             </div>`
                     }
                 }
