@@ -7,7 +7,7 @@
 @vite(['resources/css/post.css'])
 
 @php
-    use App\models\Like;
+    use App\Models\Like;
 @endphp
 
 @if (session('postBorrado'))
