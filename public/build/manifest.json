@@ -1,0 +1,42 @@
+{
+  "public/img/background.jpg": {
+    "file": "assets/background-fede5003.jpg",
+    "src": "public/img/background.jpg"
+  },
+  "resources/css/app.scss": {
+    "file": "assets/app-a9e47292.css",
+    "src": "resources/js/app.css"
+  },
+  "resources/css/index.css": {
+    "file": "assets/index-b74690ef.css",
+    "isEntry": true,
+    "src": "resources/css/index.css"
+  },
+  "resources/css/nav.css": {
+    "file": "assets/nav-1c5aa3fb.css",
+    "isEntry": true,
+    "src": "resources/css/nav.css"
+  },
+  "resources/css/perfil.css": {
+    "file": "assets/perfil-7419de6a.css",
+    "isEntry": true,
+    "src": "resources/css/perfil.css"
+  },
+  "resources/css/post.css": {
+    "file": "assets/post-551e9af6.css",
+    "isEntry": true,
+    "src": "resources/css/post.css"
+  },
+  "resources/js/app.css": {
+    "file": "assets/app-a9e47292.css",
+    "src": "resources/js/app.css"
+  },
+  "resources/js/app.js": {
+    "css": [
+      "assets/app-a9e47292.css"
+    ],
+    "file": "assets/app-ec28fc43.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  }
+}
