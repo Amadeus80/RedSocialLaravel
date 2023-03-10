@@ -25,7 +25,7 @@ Route::view("register", "register")->name("register")->middleware("guest");
 /* Rutas que gestiona el controlador de perfiles */
 Route::controller(ProfileController::class)->group(function(){
     Route::get("perfil/{id}", "recuperarPerfil")->name("perfil")->middleware("auth");
-    Route::get("postPerfil/{id}", "postsPerfil")->name("postsPerfil");
+    Route::get("postPerfil/{id}", "postsPerfil")->name("postsPerfil")->middleware("auth");
     Route::get("likesPerfil/{id}", "likesPerfil")->name("likesPerfil")->middleware("auth");
     Route::get("siguiendoPerfil/{id}", "siguiendoPerfil")->name("siguiendoPerfil")->middleware("auth");
     Route::get("follow/{id}", "darFollow")->name("follow")->middleware("auth");
