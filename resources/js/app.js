@@ -15,7 +15,7 @@ $(function () {
         $.ajax({
             async:true,
             type: "GET",
-            url: "http://127.0.0.1:8000/"+$(this).attr("href")+"/"+$(this).attr("id"),
+            url: "http://sleepy-harbor-98328.herokuapp.com/"+$(this).attr("href")+"/"+$(this).attr("id"),
             beforeSend: function(){
                 elemento.html(`<div class="spinner-border text-dark" role="status">
                 <span class="visually-hidden">Loading...</span>
@@ -44,7 +44,7 @@ $(function () {
                 async: true,
                 type: "GET",
                 dataType:"json",
-                url: `http://127.0.0.1:8000/user/${$(this).val()}`,
+                url: `http://sleepy-harbor-98328.herokuapp.com/user/${$(this).val()}`,
                 beforeSend : function(){
                     $("#usuarios").html(`<div class="text-center"><div class="spinner-border text-dark fs-3" style="width: 5rem; height: 5rem;" role="status">
                     <span class="visually-hidden">Loading...</span>
@@ -58,7 +58,7 @@ $(function () {
                             if(usuario.follow){
                                 infoFollow = "Seguido";
                             }
-                            data += `<div class="d-flex gap-2 align-items-center"><a href="http://127.0.0.1:8000/perfil/${usuario.user_id}"><img src="http://localhost:8000/${usuario.img}" class="rounded-circle" width="50" height="50"></a> <a href="http://127.0.0.1:8000/perfil/${usuario.user_id}" class="text-decoration-none text-dark">${usuario.name} - ${infoFollow}</a></div>`;
+                            data += `<div class="d-flex gap-2 align-items-center"><a href="http://sleepy-harbor-98328.herokuapp.com/perfil/${usuario.user_id}"><img src="http://localhost:8000/${usuario.img}" class="rounded-circle" width="50" height="50"></a> <a href="http://sleepy-harbor-98328.herokuapp.com/perfil/${usuario.user_id}" class="text-decoration-none text-dark">${usuario.name} - ${infoFollow}</a></div>`;
                         }
 
                     }
@@ -92,7 +92,7 @@ $(function () {
         $.ajax({
             async:true,
             type: "GET",
-            url: `http://127.0.0.1:8000/postPerfil/${elemento.attr("href")}`,
+            url: `http://sleepy-harbor-98328.herokuapp.com/postPerfil/${elemento.attr("href")}`,
             beforeSend: function(){
                 $("#contenedorInfoPerfiles").html(`<div class="text-center"><div class="spinner-border text-dark fs-3" style="width: 5rem; height: 5rem;" role="status">
                 <span class="visually-hidden">Loading...</span>
@@ -103,7 +103,7 @@ $(function () {
                 if(datos.length > 0){
                     for (const dato of datos) {
                         data += `<div class="col-12 col-md-4 mb-3 cuadroPerfil">
-                            <a href="http://127.0.0.1:8000/post/${dato.id}"><img src="http://localhost:8000/${dato.img}" alt="" class="img-fluid rounded h-100 w-100" style="object-fit: cover;"></a>
+                            <a href="http://sleepy-harbor-98328.herokuapp.com/post/${dato.id}"><img src="http://localhost:8000/${dato.img}" alt="" class="img-fluid rounded h-100 w-100" style="object-fit: cover;"></a>
                             </div>`
                     }
                 }
@@ -125,7 +125,7 @@ $(function () {
         $.ajax({
             async:true,
             type: "GET",
-            url: `http://127.0.0.1:8000/likesPerfil/${elemento.attr("href")}`,
+            url: `http://sleepy-harbor-98328.herokuapp.com/likesPerfil/${elemento.attr("href")}`,
             beforeSend: function(){
                 $("#contenedorInfoPerfiles").html(`<div class="text-center"><div class="spinner-border text-dark fs-3" style="width: 5rem; height: 5rem;" role="status">
                 <span class="visually-hidden">Loading...</span>
@@ -136,7 +136,7 @@ $(function () {
                 if(datos.length > 0){
                     for (const dato of datos) {
                         data += `<div class="col-12 col-md-4 mb-3 cuadroPerfil">
-                            <a href="http://127.0.0.1:8000/post/${dato.id}"><img src="http://localhost:8000/${dato.img}" alt="" class="img-fluid rounded h-100 w-100"></a>
+                            <a href="http://sleepy-harbor-98328.herokuapp.com/post/${dato.id}"><img src="http://localhost:8000/${dato.img}" alt="" class="img-fluid rounded h-100 w-100"></a>
                             </div>`
                     }
                 }
@@ -160,7 +160,7 @@ $(function () {
         $.ajax({
             async:true,
             type: "GET",
-            url: `http://127.0.0.1:8000/siguiendoPerfil/${elemento.attr("href")}`,
+            url: `http://sleepy-harbor-98328.herokuapp.com/siguiendoPerfil/${elemento.attr("href")}`,
             beforeSend: function(){
                 $("#contenedorInfoPerfiles").html(`<div class="text-center"><div class="spinner-border text-dark fs-3" style="width: 5rem; height: 5rem;" role="status">
                 <span class="visually-hidden">Loading...</span>
@@ -171,7 +171,7 @@ $(function () {
                 if(datos.length > 0){
                     for (const dato of datos) {
                         data += `<div class="col-12 col-md-4 mb-3">
-                            <a href="http://127.0.0.1:8000/perfil/${dato.user_id}"><img src="http://localhost:8000/${dato.img}" class="rounded-circle" height="100" width="100"></a> <a href="#" class="text-decoration-none text-dark"><h3 class="mt-2">${dato.name}</h3></a>
+                            <a href="http://sleepy-harbor-98328.herokuapp.com/perfil/${dato.user_id}"><img src="http://localhost:8000/${dato.img}" class="rounded-circle" height="100" width="100"></a> <a href="#" class="text-decoration-none text-dark"><h3 class="mt-2">${dato.name}</h3></a>
                             </div>`
                     }
                 }
@@ -190,7 +190,7 @@ $(function () {
         event.preventDefault(); 
         let id = $(this).attr("href");
 
-        $.get(`http://127.0.0.1:8000/follow/${$(this).attr("href")}`, function(datos){
+        $.get(`http://sleepy-harbor-98328.herokuapp.com/follow/${$(this).attr("href")}`, function(datos){
             $("#botonFollow").html(`<a href="${id}" class="btn btn-outline-danger" id="unfollow"><i class="bi bi-person-dash-fill"></i> Unfollow</a>`);
             $("#unfollow").click(unfollow);
         })
@@ -202,7 +202,7 @@ $(function () {
         event.preventDefault();
         let id = $(this).attr("href");
 
-        $.get(`http://127.0.0.1:8000/unfollow/${$(this).attr("href")}`, function(datos){
+        $.get(`http://sleepy-harbor-98328.herokuapp.com/unfollow/${$(this).attr("href")}`, function(datos){
             $("#botonFollow").html(`<a href="${id}" class="btn btn-outline-success" id="follow"><i class="bi bi-person-plus-fill"></i> Follow</a>`);
             $("#follow").click(follow);
         })
