@@ -33,8 +33,10 @@ class AuthController extends Controller
 
     /* Registrarse */
     public function register(Request $request){
-        if(count(User::where("email", $request->email)->get()) == 0){
-            if(count(User::where("name", $request->name)->get()) == 0){
+        $email = User::where("email", $request->email)->get();
+        $name = User::where("name", $request->name)->get();
+        if(count($email) == 0){
+            if(count($name) == 0){
                 if($request->password == $request->password2){
                     $user = User::create(["name" => $request->name, "email" => $request->email, "password" => bcrypt($request->password)]);
 
