@@ -58,7 +58,7 @@ $(function () {
                             if(usuario.follow){
                                 infoFollow = "Seguido";
                             }
-                            data += `<div class="d-flex gap-2 align-items-center"><a href="http://sleepy-harbor-98328.herokuapp.com/perfil/${usuario.user_id}"><img src="http://localhost:8000/${usuario.img}" class="rounded-circle" width="50" height="50"></a> <a href="http://sleepy-harbor-98328.herokuapp.com/perfil/${usuario.user_id}" class="text-decoration-none text-dark">${usuario.name} - ${infoFollow}</a></div>`;
+                            data += `<div class="d-flex gap-2 align-items-center"><a href="http://sleepy-harbor-98328.herokuapp.com/perfil/${usuario.user_id}"><img src="http://sleepy-harbor-98328.herokuapp.com/${usuario.img}" class="rounded-circle" width="50" height="50"></a> <a href="http://sleepy-harbor-98328.herokuapp.com/perfil/${usuario.user_id}" class="text-decoration-none text-dark">${usuario.name} - ${infoFollow}</a></div>`;
                         }
 
                     }
