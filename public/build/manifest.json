@@ -5,7 +5,8 @@
   },
   "resources/css/app.scss": {
     "file": "assets/app-a9e47292.css",
-    "src": "resources/js/app.css"
+    "isEntry": true,
+    "src": "resources/css/app.scss"
   },
   "resources/css/index.css": {
     "file": "assets/index-b74690ef.css",
@@ -29,13 +30,14 @@
   },
   "resources/js/app.css": {
     "file": "assets/app-a9e47292.css",
-    "src": "resources/js/app.css"
+    "isEntry": true,
+    "src": "resources/css/app.scss"
   },
   "resources/js/app.js": {
     "css": [
       "assets/app-a9e47292.css"
     ],
-    "file": "assets/app-a1ac1ba5.js",
+    "file": "assets/app-3ab825fb.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }
